@@ -1,0 +1,98 @@
+/******************************************************************
+
+Stylesheet: Admin Stylesheet
+
+This stylesheet is loaded in the admin area only. This way you can style
+the admin area.
+
+Make sure functions/admin.php is activated in your functions.php file.
+
+This stylesheet is turned off by default.
+
+For more info, check out the codex:
+http://codex.wordpress.org/Creating_Admin_Themes
+
+******************************************************************/
+
+// button[aria-label='Align text left'],
+// button[aria-label='Align text center'],
+// button[aria-label='Align text right'] {
+//     display: none !important;
+// }
+.ac-image {
+    background-color: transparent !important;
+}
+
+.username {
+    .avatar {
+        display: none;
+    }
+}
+.nav-menus-php {
+    #menu-to-edit {
+        .acf-menu-item-fields {
+            width: calc(100% - 10px);
+            [data-name='submenu_template'],
+            [data-name='sophia_menu_thumbnail'],
+            [data-name='sophia_menu_subtitle'],
+            [data-name='sophia_menu_btn_type'] {
+                display: none;
+            }
+
+            .acf-image-uploader .image-wrap {
+                width: 100%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+        .menu-item-depth-0 {
+            .acf-menu-item-fields {
+                [data-name='submenu_template'] {
+                    display: block;
+                }
+            }
+        }
+
+        .menu-item-depth-1,
+        .menu-item-depth-2 {
+            .acf-menu-item-fields {
+                [data-name='sophia_menu_thumbnail'],
+                [data-name='sophia_menu_subtitle'],
+                [data-name='sophia_menu_btn_type'] {
+                    display: block;
+                }
+
+                .acf-tab-wrap .acf-tab-group li:last-of-type,
+                [data-name='sophia_menu_visibility_user_choice_provider'],
+                [data-name='sophia_menu_visibility_user_choice_consumer'],
+                [data-name='sophia_menu_visibility_user_choice_deny'],
+                [data-key='field_5d67a9638e49e'] {
+                    display: none;
+                }
+            }
+        }
+
+        .menu-item-depth-2 {
+            .acf-menu-item-fields {
+                [data-name='sophia_menu_btn_type'] {
+                    display: none;
+                }
+            }
+        }
+        // Hide all acf fields for hamburger.
+        #menu-item-88 {
+            .acf-tab-wrap .acf-tab-group li:last-of-type,
+            [data-name='sophia_menu_thumbnail'],
+            [data-name='sophia_menu_subtitle'],
+            [data-name='sophia_menu_btn_type'],
+            [data-name='sophia_menu_visibility_user_choice_provider'],
+            [data-name='sophia_menu_visibility_user_choice_consumer'],
+            [data-name='sophia_menu_visibility_user_choice_deny'] {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+/**
+ * ----------------------------------------
+ * Animation: flip-in-hor-alt
+ * ----------------------------------------
+ */
+
+.ani--flip-in__hor__alt {
+   animation-name: flip-in-hor-alt;
+}
+
+@keyframes flip-in-hor-alt {
+   0% {
+      transform: rotateX(-80deg);
+      opacity: 0;
+   }
+   100% {
+      transform: rotateX(0);
+      opacity: 1;
+   }
+}

@@ -1,0 +1,16 @@
+@import 'colors';
+@import 'typography';
+@import 'masthead';
+@import 'hamburger';
+
+:root {
+    --modal-width: 800px;
+    --loader-width: calc(var(--modal-width) / 10);
+
+    --def-block-vert-pad: rem-calc(36px);
+    --gutter-width: rem-calc(10px);
+
+    --width-norm: rem-calc(1240px);
+    --width-wide: rem-calc(1500px);
+    --width-full: 100%;
+}

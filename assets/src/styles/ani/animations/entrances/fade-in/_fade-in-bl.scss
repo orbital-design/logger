@@ -1,0 +1,20 @@
+/**
+ * ----------------------------------------
+ * Animation: fade-in-bl
+ * ----------------------------------------
+ */
+
+.ani--fade-in__bl {
+   animation-name: fade-in-bl;
+}
+
+@keyframes fade-in-bl {
+  0% {
+    transform: translateX(-50px) translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,164 @@
+.btn {
+    display: block;
+    border: none;
+    box-shadow: none;
+    color: var(--white);
+    padding: 0;
+    cursor: pointer;
+
+    // Normalize (<button>)
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+
+    outline: none;
+    -webkit-appearance: none;
+
+    &.btn-square {
+        position: relative;
+        display: block;
+        &::before {
+            content: '';
+            float: left;
+            padding-bottom: 100%;
+        }
+
+        &::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    }
+
+    &.btn-pill {
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        font-family: var(--sans-serif-font-family);
+        font-size: rem-calc(16);
+        padding: 0 rem-calc(30);
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 55px;
+        border: none;
+        color: var(--yellow-500);
+        background-color: var(--grey-dark);
+        transition: all 0.15s ease;
+        z-index: 2;
+        &:hover {
+            opacity: 0.85;
+        }
+
+        &--state-inverse {
+            background-color: var(--yellow-500);
+            color: var(--grey-dark);
+        }
+
+        &--state-outline {
+            border: 1px solid var(--grey-off);
+            background-color: transparent;
+            color: var(--grey-dark);
+            text-transform: initial;
+            letter-spacing: 0;
+            display: inline-flex;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease-in-out;
+            align-items: center;
+            padding: 0 15px;
+
+            svg {
+                width: 25px;
+                height: 25px;
+                margin-right: 10px;
+
+                path {
+                    transition: fill 0.4s ease-in-out;
+                }
+            }
+
+            &::before {
+                content: '';
+                z-index: -1;
+                position: absolute;
+                bottom: 100%;
+                right: 100%;
+                width: 1.75em;
+                height: 1.75em;
+                border-radius: 50%;
+                background-color: var(--grey-off);
+                transform-origin: center;
+                transform: translate3d(50%, 50%, 0) scale3d(0, 0, 0);
+                transition: transform 0.4s ease-in-out;
+            }
+
+            &:hover {
+                // color: var(--white);
+                &::before {
+                    transform: translate3d(50%, 50%, 0) scale3d(15, 15, 15);
+                }
+
+                svg {
+                    path {
+                        // fill: var(--yellow-500);
+                    }
+                }
+            }
+        }
+    }
+}
+
+%btn-pill {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    height: 35px;
+    line-height: 35px;
+    font-family: var(--sans-serif-font-family);
+    font-size: rem-calc(16);
+    padding: 0 rem-calc(20);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 55px;
+    border: none;
+    transition: all 0.45s ease 0.15s;
+    z-index: 2;
+
+    background: var(--yellow-500);
+    color: var(--grey-dark);
+
+    &::before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        bottom: 100%;
+        right: 100%;
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        background-color: var(--grey-dark);
+        transform-origin: center;
+        transform: translate3d(50%, 50%, 0) scale3d(0, 0, 0);
+        transition: all 0.45s ease-in-out;
+    }
+
+    &:hover {
+        color: var(--yellow-500);
+
+        &::before {
+            transform: translate3d(50%, 50%, 0) scale3d(15, 15, 15);
+        }
+    }
+}

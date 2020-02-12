@@ -1,0 +1,31 @@
+/*--------------------------------------------------------------
+# Heading
+--------------------------------------------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--sans-serif-font-family);
+    font-weight: 400;
+    color: var(--grey-dark);
+    line-height: 1.4;
+
+    max-width: 1240px;
+    margin: 0 auto calc(var(--gutter-width) * 2);
+}
+
+h1 {
+    font-size: var(--f-s-extra-large);
+}
+
+h2 {
+    font-size: var(--f-s-large);
+}
+
+h3 {
+    font-size: var(--f-s-large);
+    line-height: 1.2;
+}

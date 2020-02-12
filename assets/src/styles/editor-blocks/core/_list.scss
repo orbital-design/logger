@@ -1,0 +1,85 @@
+/*--------------------------------------------------------------
+# List
+--------------------------------------------------------------*/
+
+.article-content ul,
+.article-content ol {
+    margin: 0 0 var(--def-block-vert-pad);
+    list-style-position: outside;
+
+    li {
+        margin: 0 0 var(--gutter-width);
+    }
+}
+
+.is-style-white-ticks {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+    > li {
+        position: relative;
+        padding-left:40px;
+
+        svg {
+            margin-right: calc(var(--gutter-width) * 1.5);
+            color: var(--white);
+            position: absolute;
+             left: 0;
+
+        }
+        &:before {
+            display: none;
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 300;
+            content: "\f00c";
+        }
+    }
+}
+
+.is-style-yellow-ticks {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+    > li {
+        position: relative;
+        padding-left:40px;
+
+        svg {
+            margin-right: calc(var(--gutter-width) * 1.5);
+            color: var(--yellow-500);
+            position: absolute;
+             left: 0;
+
+        }
+        &:before {
+            display: none;
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 300;
+            content: "\f00c";
+        }
+    }
+}
+
+.is-style-grey-ticks {
+    list-style: none;
+    margin-left: 0;
+    padding: 0;
+    > li {
+        position: relative;
+        padding-left:40px;
+
+        svg {
+            margin-right: calc(var(--gutter-width) * 1.5);
+            color: var(--grey-dark);
+            position: absolute;
+             left: 0;
+
+        }
+        &:before {
+            display: none;
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 300;
+            content: "\f00c";
+        }
+    }
+}

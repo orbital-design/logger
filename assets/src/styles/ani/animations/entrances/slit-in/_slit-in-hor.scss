@@ -1,0 +1,24 @@
+/**
+ * ----------------------------------------
+ * Animation: slit-in-hor
+ * ----------------------------------------
+ */
+
+.ani--slit-in__hor {
+   animation-name: slit-in-hor;
+}
+
+@keyframes slit-in-hor {
+   0% {
+      transform: translateZ(-800px) rotateX(90deg);
+      opacity: 0;
+   }
+   54% {
+      transform: translateZ(-160px) rotateX(87deg);
+      opacity: 1;
+   }
+   100% {
+      transform: translateZ(0) rotateX(0);
+      opacity: 1;
+   }
+}

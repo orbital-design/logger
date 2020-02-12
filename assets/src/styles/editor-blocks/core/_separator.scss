@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+## Separator
+--------------------------------------------------------------*/
+
+.block-separator {
+    margin: var(--gutter-width) auto;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid var(--grey-off);
+    max-width: var(--width-norm);
+
+    &.is-style-wide {
+        max-width: calc(var(--width-wide) - calc(var(--gutter-width) * 2));
+    }
+}

@@ -1,0 +1,24 @@
+:root {
+    // Color vars
+    @include defineColorHSL(--grey-dark, 150, 3%, 13%);
+    @include defineColorHSL(--grey-light, 0, 0%, 95%);
+    --grey-medium: #404040;
+    --grey-off: #a2aaad;
+    --grey-light: #f3f3f3;
+
+    --yellow-100: #fff8e6;
+    --yellow-200: #feeec0;
+    --yellow-300: #fde39a;
+    --yellow-400: #fccf4e;
+    --yellow-500: #fbba02;
+    --yellow-600: #e2a702;
+    --yellow-700: #977001;
+    --yellow-800: #715401;
+    --yellow-900: #4b3801;
+
+    --orange: #ff8900;
+    --white: #ffffff;
+
+    --text-color: #5d5d5d;
+    --text-soft: #999999;
+}

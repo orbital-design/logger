@@ -1,0 +1,21 @@
+.block-spacer {
+    display: block;
+    width: 100%;
+    clear: both;
+
+    height: calc(var(--gutter-width) * 2);
+
+    .is-selected & {
+        background: var(--grey-dark);
+    }
+
+    @for $i from 1 through 10 {
+        &.is-style-spacer-#{$i} {
+            height: calc(calc(var(--gutter-width) / 2) * #{$i});
+
+            @media (--viewport-m) {
+                height: calc(var(--gutter-width) * #{$i});
+            }
+        }
+    }
+}

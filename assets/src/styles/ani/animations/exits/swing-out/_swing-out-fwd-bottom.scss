@@ -1,0 +1,22 @@
+/**
+ * ----------------------------------------
+ * Animation: swing-out-fwd-bottom
+ * ----------------------------------------
+ */
+
+.ani--swing-out__fwd__bottom {
+   animation-name: swing-out-fwd-bottom;
+}
+
+@keyframes swing-out-fwd-bottom {
+   0% {
+      transform: rotateX(0);
+      transform-origin: bottom;
+      opacity: 1;
+   }
+   100% {
+      transform: rotateX(-70deg);
+      transform-origin: bottom;
+      opacity: 0;
+   }
+}

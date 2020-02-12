@@ -1,0 +1,25 @@
+.article-header {
+    &.article-header--search {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 var(--gutter-width);
+        margin-bottom: calc(var(--gutter-width) * 5);
+        text-align: left;
+        max-width: var(--width-wide);
+
+        .article-header__title {
+            font-family: var(--f-f-sans);
+            font-size: var(--f-s-larger);
+            // font-weight: var(--f-w-heavy);
+            color: var(--grey-dark);
+            margin-bottom: calc(var(--gutter-width) * 5);
+            max-width: none;
+            line-height: 1.2;
+
+            strong {
+                font-weight: var(--f-w-heavy);
+            }
+        }
+    }
+}

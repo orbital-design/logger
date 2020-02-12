@@ -1,0 +1,20 @@
+/**
+ * ----------------------------------------
+ * Animation: fade-in-right
+ * ----------------------------------------
+ */
+
+.ani--fade-in__right {
+   animation-name: fade-in-right;
+}
+
+@keyframes fade-in-right {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

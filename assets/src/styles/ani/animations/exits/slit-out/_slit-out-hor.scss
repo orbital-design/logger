@@ -1,0 +1,24 @@
+/**
+ * ----------------------------------------
+ * Animation: slit-out-hor
+ * ----------------------------------------
+ */
+
+.ani--slit-out__hor {
+   animation-name: slit-out-hor;
+}
+
+@keyframes slit-out-hor {
+   0% {
+      transform: translateZ(0) rotateX(0);
+      opacity: 1;
+   }
+   54% {
+      transform: translateZ(-160px) rotateX(87deg);
+      opacity: 1;
+   }
+   100% {
+      transform: translateZ(-800px) rotateX(90deg);
+      opacity: 0;
+   }
+}

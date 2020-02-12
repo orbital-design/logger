@@ -1,0 +1,20 @@
+/**
+ * ----------------------------------------
+ * Animation: fade-out-top
+ * ----------------------------------------
+ */
+
+.ani--fade-out__top {
+   animation-name: fade-out-top;
+}
+
+@keyframes fade-out-top {
+   0% {
+      transform: translateY(0);
+      opacity: 1;
+   }
+   100% {
+      transform: translateY(-50px);
+      opacity: 0;
+   }
+}

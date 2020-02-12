@@ -1,0 +1,20 @@
+/**
+ * ----------------------------------------
+ * Animation: flip-out-hor
+ * ----------------------------------------
+ */
+
+.ani--flip-out__hor {
+   animation-name: flip-out-hor;
+}
+
+@keyframes flip-out-hor {
+   0% {
+      transform: rotateX(0);
+      opacity: 1;
+   }
+   100% {
+      transform: rotateX(80deg);
+      opacity: 0;
+   }
+}

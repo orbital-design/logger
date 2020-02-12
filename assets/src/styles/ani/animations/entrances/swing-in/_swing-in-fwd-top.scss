@@ -1,0 +1,22 @@
+/**
+ * ----------------------------------------
+ * Animation: swing-in-fwd-top
+ * ----------------------------------------
+ */
+
+.ani--swing-in__fwd__top {
+   animation-name: swing-in-fwd-top;
+}
+
+@keyframes swing-in-fwd-top {
+   0% {
+      transform: rotateX(-100deg);
+      transform-origin: top;
+      opacity: 0;
+   }
+   100% {
+      transform: rotateX(0deg);
+      transform-origin: top;
+      opacity: 1;
+   }
+}

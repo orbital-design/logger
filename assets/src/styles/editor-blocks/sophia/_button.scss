@@ -1,0 +1,94 @@
+/*--------------------------------------------------------------
+## Button
+--------------------------------------------------------------*/
+.block-button {
+    &.alignleft {
+        text-align: left;
+    }
+
+    &.aligncenter {
+        text-align: center;
+    }
+
+    &.alignright {
+        text-align: right;
+    }
+
+    .block-button__link {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        height: 35px;
+        line-height: 35px;
+        font-family: var(--sans-serif-font-family);
+        font-size: rem-calc(16);
+        padding: 0 rem-calc(20);
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 55px;
+        border: none;
+        transition: all 0.45s ease 0.15s;
+        z-index: 2;
+
+        background: var(--yellow-500);
+        color: var(--grey-dark);
+
+        &::before {
+            content: '';
+            z-index: -1;
+            position: absolute;
+            bottom: 100%;
+            right: 100%;
+            width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            background-color: var(--grey-dark);
+            transform-origin: center;
+            transform: translate3d(50%, 50%, 0) scale3d(0, 0, 0);
+            transition: all 0.45s ease-in-out;
+        }
+
+        &:hover {
+            color: var(--yellow-500);
+
+            &::before {
+                transform: translate3d(50%, 50%, 0) scale3d(15, 15, 15);
+            }
+        }
+    }
+
+    &.is-style-fill-inverse {
+        .block-button__link {
+            color: var(--yellow-500);
+            background: var(--grey-dark);
+
+            &::before {
+                background-color: var(--yellow-500);
+            }
+
+            &:hover {
+                color: var(--grey-dark);
+            }
+        }
+    }
+
+    &.is-style-outline {
+        .block-button__link {
+            border: 1px solid var(--grey-off);
+            background-color: var(--white);
+            color: var(--grey-dark);
+
+            &::before {
+                background-color: var(--grey-off);
+            }
+
+            &:hover {
+                color: var(--grey-dark);
+            }
+        }
+    }
+}

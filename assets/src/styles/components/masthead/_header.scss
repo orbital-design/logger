@@ -1,0 +1,32 @@
+.site-header {
+    height: var(--header-height);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+
+    transition: var(--header-transition);
+
+    background: var(--white);
+
+    padding-left: var(--gutter-width);
+    padding-right: var(--gutter-width);
+
+    // @media (--viewport-m) {
+    //     padding-left: 0;
+    //     padding-right: 0;
+    // }
+
+    > .row {
+        height: 100%;
+    }
+    &.site-header--state-scrolled {
+        height: var(--header-height-scrolled);
+        background: var(--grey-dark);
+    }
+}

@@ -1,0 +1,20 @@
+/**
+ * ----------------------------------------
+ * Animation: fade-in-back
+ * ----------------------------------------
+ */
+
+.ani--fade-in__back {
+   animation-name: fade-in-back;
+}
+
+@keyframes fade-in-back {
+  0% {
+    transform: translateZ(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}

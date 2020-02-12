@@ -1,0 +1,164 @@
+:root {
+    @include defineColorHSL(--grey-dark, 150, 3%, 13%);
+    @include defineColorHSL(--grey-light, 0, 0%, 95%);
+    --grey-light: #f3f3f3;
+    --grey-medium: #404040;
+    // --grey-dark: #212322;
+    --grey-off: #a2aaad;
+
+    --yellow-100: #fff8e6;
+    --yellow-200: #feeec0;
+    --yellow-300: #fde39a;
+    --yellow-400: #fccf4e;
+    --yellow-500: #fbba02;
+    --yellow-600: #e2a702;
+    --yellow-700: #977001;
+    --yellow-800: #715401;
+    --yellow-900: #4b3801;
+
+    --white: #ffffff;
+    --black: #000000;
+    --text-color: #5d5d5d;
+    --text-soft: #999999;
+
+    --f-w-regular: 300;
+    --f-w-strong: 600;
+    --f-w-heavy: 700;
+
+    // --f-s-small: rem-calc(14px);
+    // --f-s-regular: rem-calc(16px);
+    // --f-s-medium: rem-calc(18px);
+    // --f-s-large: rem-calc(28px);
+    // --f-s-larger: rem-calc(36px);
+    // --f-s-extra-large: rem-calc(42px);
+
+    --f-f-sans: 'IBM Plex Sans', Arial, 'Helvetica Neue', sans-serif;
+    --f-f-serif: 'IBM Plex Serif', var(--sans-serif-font-family);
+    --sans-serif-font-family: 'IBM Plex Sans', Arial, 'Helvetica Neue', sans-serif;
+    --serif-font-family: 'IBM Plex Serif', var(--sans-serif-font-family);
+
+    --header-height: 80px;
+    --header-height-scrolled: 50px;
+    --header-transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+    --modal-width: 800px;
+    --loader-width: calc(var(--modal-width) / 10);
+
+    --def-block-vert-pad: rem-calc(36px);
+    --gutter-width: rem-calc(10px);
+    --page-top-padding: 90px;
+    --width-norm: rem-calc(1240px);
+    --width-wide: rem-calc(1500px);
+    --width-full: 100%;
+
+    --hamburger-layer-width: 30px;
+    --hamburger-layer-height: 1px;
+    --hamburger-layer-spacing: 10px;
+    --hamburger-layer-color: var(--grey-dark);
+    --hamburger-layer-border-radius: 4px;
+    --hamburger-hover-opacity: 0.7;
+    --hamburger-active-layer-color: var(--hamburger-layer-color);
+    --hamburger-active-hover-opacity: var(--hamburger-hover-opacity);
+
+    --fluid-min-width: 320;
+    --fluid-max-width: 1500;
+    --fluid-min-size: 16;
+    --fluid-max-size: 20;
+    --fluid-min-ratio: 1.2;
+    --fluid-max-ratio: 1.25;
+
+    --fluid-screen: 100vw;
+    --fluid-bp: calc((var(--fluid-screen) - ((var(--fluid-min-width) / 16) * 1rem)) / ((var(--fluid-max-width) / 16) - (var(--fluid-min-width) / 16)));
+}
+
+@media screen and (min-width: 1500px) {
+    :root {
+        --fluid-screen: calc(var(--fluid-max-width) * 1px);
+    }
+}
+
+@media (--viewport-lp) {
+    :root {
+        --page-top-padding: 90px;
+    }
+}
+
+@media (--viewport-s) {
+    :root {
+        --page-top-padding: 100px;
+    }
+}
+
+@media (--viewport-m) {
+    :root {
+        --page-top-padding: 125px;
+
+        // --f-s-small: rem-calc(16px);
+        // --f-s-regular: rem-calc(20px);
+        // --f-s-medium: rem-calc(24px);
+        // --f-s-large: rem-calc(30px);
+        // --f-s-larger: rem-calc(50px);
+        // --f-s-extra-large: rem-calc(60px);
+    }
+}
+
+@media (--viewport-l) {
+    :root {
+        --page-top-padding: 150px;
+        --header-height: 105px;
+        --header-height-scrolled: 60px;
+    }
+}
+
+@media (--viewport-xl) {
+    :root {
+        // --page-top-padding: 175px;
+    }
+}
+
+:root {
+    --fluid-max-negative: (1 / var(--fluid-max-ratio) / var(--fluid-max-ratio));
+    --fluid-min-negative: (1 / var(--fluid-min-ratio) / var(--fluid-min-ratio));
+
+    --fluid-min-scale--1: var(--fluid-min-ratio) * var(--fluid-min-negative);
+    --fluid-max-scale--1: var(--fluid-max-ratio) * var(--fluid-max-negative);
+    --fluid-min-size--1: (var(--fluid-min-size) * var(--fluid-min-scale--1)) / 16;
+    --fluid-max-size--1: (var(--fluid-max-size) * var(--fluid-max-scale--1)) / 16;
+    --f-s-small: calc(((var(--fluid-min-size--1) * 1rem) + (var(--fluid-max-size--1) - var(--fluid-min-size--1)) * var(--fluid-bp)));
+
+    --fluid-min-scale-0: var(--fluid-min-ratio);
+    --fluid-max-scale-0: var(--fluid-max-ratio);
+    --fluid-min-size-0: (var(--fluid-min-size)) / 16;
+    --fluid-max-size-0: (var(--fluid-max-size)) / 16;
+    --f-s-regular: calc(((var(--fluid-min-size-0) * 1rem) + (var(--fluid-max-size-0) - var(--fluid-min-size-0)) * var(--fluid-bp)));
+
+    --fluid-min-scale-1: var(--fluid-min-scale-0) * var(--fluid-min-ratio);
+    --fluid-max-scale-1: var(--fluid-max-scale-0) * var(--fluid-max-ratio);
+    --fluid-min-size-1: (var(--fluid-min-size) * var(--fluid-min-scale-0)) / 16;
+    --fluid-max-size-1: (var(--fluid-max-size) * var(--fluid-max-scale-0)) / 16;
+    --f-s-medium: calc(((var(--fluid-min-size-1) * 1rem) + (var(--fluid-max-size-1) - var(--fluid-min-size-1)) * var(--fluid-bp)));
+
+    --fluid-min-scale-2: var(--fluid-min-scale-1) * var(--fluid-min-ratio);
+    --fluid-max-scale-2: var(--fluid-max-scale-1) * var(--fluid-max-ratio);
+    --fluid-min-size-2: (var(--fluid-min-size) * var(--fluid-min-scale-1)) / 16;
+    --fluid-max-size-2: (var(--fluid-max-size) * var(--fluid-max-scale-1)) / 16;
+    --f-s-large: calc(((var(--fluid-min-size-2) * 1rem) + (var(--fluid-max-size-2) - var(--fluid-min-size-2)) * var(--fluid-bp)));
+
+    --fluid-min-scale-3: var(--fluid-min-scale-2) * var(--fluid-min-ratio);
+    --fluid-max-scale-3: var(--fluid-max-scale-2) * var(--fluid-max-ratio);
+    --fluid-min-size-3: (var(--fluid-min-size) * var(--fluid-min-scale-2)) / 16;
+    --fluid-max-size-3: (var(--fluid-max-size) * var(--fluid-max-scale-2)) / 16;
+    --step-3: calc(((var(--fluid-min-size-3) * 1rem) + (var(--fluid-max-size-3) - var(--fluid-min-size-3)) * var(--fluid-bp)));
+
+    --fluid-min-scale-4: var(--fluid-min-scale-3) * var(--fluid-min-ratio);
+    --fluid-max-scale-4: var(--fluid-max-scale-3) * var(--fluid-max-ratio);
+    --fluid-min-size-4: (var(--fluid-min-size) * var(--fluid-min-scale-3)) / 16;
+    --fluid-max-size-4: (var(--fluid-max-size) * var(--fluid-max-scale-3)) / 16;
+    --f-s-larger: calc(((var(--fluid-min-size-4) * 1rem) + (var(--fluid-max-size-4) - var(--fluid-min-size-4)) * var(--fluid-bp)));
+
+    --fluid-min-scale-5: var(--fluid-min-scale-4) * var(--fluid-min-ratio);
+    --fluid-max-scale-5: var(--fluid-max-scale-4) * var(--fluid-max-ratio);
+    --fluid-min-size-5: (var(--fluid-min-size) * var(--fluid-min-scale-4)) / 16;
+    --fluid-max-size-5: (var(--fluid-max-size) * var(--fluid-max-scale-4)) / 16;
+    --f-s-extra-large: calc(((var(--fluid-min-size-5) * 1rem) + (var(--fluid-max-size-5) - var(--fluid-min-size-5)) * var(--fluid-bp)));
+}

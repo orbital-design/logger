@@ -1,0 +1,17 @@
+:root {
+    --f-w-regular: 300;
+    --f-w-strong: 600;
+    --f-w-heavy: 700;
+
+    --f-s-small: rem-calc(16px);
+    --f-s-regular: rem-calc(20px);
+    --f-s-medium: rem-calc(24px);
+    --f-s-large: rem-calc(30px);
+    --f-s-larger: rem-calc(50px);
+    --f-s-extra-large: rem-calc(60px);
+
+    --f-f-sans: 'IBM Plex Sans', Arial, 'Helvetica Neue', sans-serif;
+    --f-f-serif: 'IBM Plex Serif', var(--sans-serif-font-family);
+    --sans-serif-font-family: 'IBM Plex Sans', Arial, 'Helvetica Neue', sans-serif; // TODO: Refactor all other scss files to use var --f-f-sans.
+    --serif-font-family: 'IBM Plex Serif', var(--sans-serif-font-family); // TODO: Refactor all other scss files to use var --f-f-serif.
+}

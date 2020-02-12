@@ -1,0 +1,210 @@
+// colors
+
+$color-1: #ffffff; // White
+$color-2: #b54240; // Crail
+$color-3: #000000; // Black
+
+// fonts
+
+$primary-font: 'Lato', sans-serif;
+@mixin center($xy: xy) {
+    @if $xy == xy {
+        left: 50%;
+        top: 50%;
+        bottom: auto;
+        right: auto;
+        @include transform(translateX(-50%) translateY(-50%));
+    } @else if $xy == x {
+        left: 50%;
+        right: auto;
+        @include transform(translateX(-50%));
+    } @else if $xy == y {
+        top: 50%;
+        bottom: auto;
+        @include transform(translateY(-50%));
+    }
+}
+
+// border radius
+
+@mixin border-radius($radius: 0.25em) {
+    border-radius: $radius;
+}
+
+// antialiasing mode font rendering
+
+@mixin font-smoothing {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// breakpoints
+$S: 480px;
+$M: 768px;
+$L: 1170px;
+
+// media queries
+
+@mixin MQ($canvas) {
+    @if $canvas == S {
+        @media only screen and (min-width: $S) {
+            @content;
+        }
+    } @else if $canvas == M {
+        @media only screen and (min-width: $M) {
+            @content;
+        }
+    } @else if $canvas == L {
+        @media only screen and (min-width: $L) {
+            @content;
+        }
+    }
+}
+
+// super light grid - it works with the .cd-container class inside style.scss
+
+@mixin column($percentage, $float-direction: left) {
+    width: 100% * $percentage;
+    float: $float-direction;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* --------------------------------
+
+Main Components
+
+-------------------------------- */
+
+.block-360 {
+    position: relative;
+    .block-360__feature {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+    }
+
+    .block-360__loader {
+        /* this is the image visible before the image sprite is loaded */
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .block-360__sprite {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        height: 100%;
+        /* our image sprite is composed by 24 frames */
+        width: 2400%;
+        background-size: 100%;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    &.loaded .block-360__sprite {
+        /* image sprite has been loaded */
+        opacity: 1;
+        // cursor: ew-resize;
+    }
+}
+
+.block-360__controls {
+    position: absolute;
+    bottom: 45px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    width: 60%;
+    max-width: 300px;
+    border-radius: 50em;
+    margin: 0 auto;
+    height: 2px;
+
+    @media (--viewport-m) {
+        bottom: 70px;
+    }
+    .block-360__controls__track {
+        /* this is used to create the loading block-360__controls__track effect */
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: inherit;
+        background: var(--grey-off);
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.5s;
+    }
+
+    .no-csstransitions & .block-360__controls__track {
+        display: none;
+    }
+
+    .block-360__controls__handle {
+        position: absolute;
+        z-index: 2;
+        display: inline-block;
+        height: 35px;
+        width: 35px;
+        left: 0;
+        top: 50%;
+
+        background: var(--yellow-500)
+            url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 39 29'%3E%3Cg fill='%23212322' fill-rule='nonzero'%3E%3Cpath d='M23.6 3.9a2 2 0 0 1 0-2.9 2 2 0 0 1 2.8 0L38 13c.4.4.6 1 .6 1.5 0 .6-.2 1-.6 1.5L26.4 28c-.8.8-2 .8-2.8 0a2 2 0 0 1 0-2.9l8.3-8.6c.7-.6 1-1.3 1-2s-.3-1.4-1-2l-8.3-8.6zM15.3 3.9c.8-.8.8-2 0-2.9a2 2 0 0 0-2.8 0L.9 13c-.4.4-.6 1-.6 1.5 0 .6.2 1 .6 1.5l11.6 12c.8.8 2 .8 2.8 0 .8-.8.8-2 0-2.9l-8.4-8.6c-.6-.6-1-1.3-1-2s.4-1.4 1-2l8.4-8.6z'/%3E%3C/g%3E%3C/svg%3E")
+            no-repeat center center;
+        background-size: 50%;
+        border-radius: 50%;
+        box-shadow: 0 0 0 6px rgba(251, 186, 2, 0.3), 0 0 20px rgba(#000, 0.1);
+
+        /* replace text with image */
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        color: transparent;
+        transform: translate(-50%, -50%) scale(0);
+        transition: box-shadow 0.2s;
+
+        &:active {
+            box-shadow: 0 0 0 0 rgba($color-2, 0), 0 0 20px rgba(#000, 0.2);
+        }
+    }
+
+    .loaded & {
+        // Sprite has been loaded.
+        .block-360__controls__track {
+            opacity: 1;
+            transition: transform 0.3s, opacity 0.2s 0.3s;
+        }
+
+        .block-360__controls__handle {
+            transform: translate(-50%, -50%) scale(1);
+            animation: cd-bounce 0.3s 0.3s;
+            animation-fill-mode: both;
+            cursor: ew-resize;
+        }
+    }
+}
+
+@keyframes cd-bounce {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

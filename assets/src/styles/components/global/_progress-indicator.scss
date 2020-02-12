@@ -1,0 +1,88 @@
+:root {
+    --progress-size: rem-calc(50px);
+}
+
+/* #Progress
+================================================== */
+
+.progress {
+    border: none;
+    position: fixed;
+    right: var(--progress-size);
+    bottom: var(--progress-size);
+    height: var(--progress-size);
+    width: var(--progress-size);
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 2px rgba(162, 170, 173, 0.5); // Light
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.35s ease;
+    overflow: hidden;
+    outline: none;
+    background: none;
+
+    -webkit-transition: opacity 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: opacity 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+    transition: transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), opacity 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), box-shadow 0.2s cubic-bezier(0.02, 0.01, 0.47, 1), -webkit-transform 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+
+    &::before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: calc(var(--progress-size) - 4px);
+        height: calc(var(--progress-size) - 4px);
+        border-radius: 50%;
+        background-color: var(--yellow-500);
+        transform-origin: center;
+        transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+    }
+    &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 0;
+        height: var(--progress-size);
+        width: var(--progress-size);
+        cursor: pointer;
+        display: block;
+        z-index: 1;
+        transition: all 200ms linear;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 28'%3E%3Cpath fill='%23212322' d='M2.54 10.92a1.4 1.4 0 0 1-1.98 0 1.39 1.39 0 0 1 0-1.95L8.87.78a1.44 1.44 0 0 1 2.02 0l8.32 8.19c.55.54.55 1.4 0 1.95a1.4 1.4 0 0 1-1.99 0L11.3 5.06v20.8c0 .77-.63 1.37-1.4 1.37-.78 0-1.4-.6-1.4-1.37V5.06l-5.95 5.86z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: 35%;
+        background-position: center;
+    }
+
+    .progress__circle {
+        transition: all 300ms linear;
+        path {
+            fill: none;
+            stroke: var(--grey-dark); // Light
+            stroke-width: 4;
+            box-sizing: border-box;
+            transition: all 0.35s ease;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: inset 0 0 0 2px rgba(162, 170, 173, 0.5), 0 10px 15px rgba(0, 0, 0, 0.16);
+        opacity: 0.5;
+        transform: translateY(-5px) !important;
+        transition: all 0.2s cubic-bezier(0.02, 0.01, 0.47, 1);
+    }
+
+    &.progress--active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
