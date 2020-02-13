@@ -142,14 +142,15 @@ class Theme {
     protected function getDefaultComponents() : array
     {
         $components = [
+            new Theme_Setup\Component(),
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
             new Mime_Types\Component(),
             new Enqueue_Assets\Component(),
+            new Google_Fonts\Component(),
             new Font_Awesome\Component(),
 
 
-            // new Setup_Theme\Component(),
             // new Setup_Admin\Component(),
             // new Setup_Login\Component(),
             // new Setup_Custom_Background\Component(),
