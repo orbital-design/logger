@@ -1,0 +1,9 @@
+{
+    "customMedia": {
+        "--viewport-xl": "(min-width: 1500px)",
+        "--viewport-l": "(min-width: 1300px)",
+        "--viewport-m": "(min-width: 1024px)",
+        "--viewport-s": "(min-width: 768px)",
+        "--viewport-lp": "(min-width: 366px) and (min-height: 700px)"
+    }
+}
