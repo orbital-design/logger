@@ -142,7 +142,7 @@ class Theme {
     protected function getDefaultComponents() : array
     {
         $components = [
-            new Clean_Theme\Component(),
+            new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
 
             // new Enqueue_Assets\Component(),

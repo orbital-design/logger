@@ -17,10 +17,6 @@ use function remove_filter;
 
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
- *
- * Exposes template tags:
- * * `logger()->getVersion()`
- * * `logger()->getAssetVersion( string $filepath )`
  */
 class Component implements Component_Interface {
 
