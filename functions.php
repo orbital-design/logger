@@ -19,7 +19,7 @@ define( 'LOGGER_MINIMUM_PHP_VERSION', '7.2' );
 
 
 // Compatibility check - Bail if reqs aren't met.
-if ( version_compare( $GLOBALS['wp_version'], SOPHIA_MINIMUM_WP_VERSION, '<' ) || version_compare( phpversion(), SOPHIA_MINIMUM_PHP_VERSION, '<' ) ) {
+if ( version_compare( $GLOBALS['wp_version'], LOGGER_MINIMUM_WP_VERSION, '<' ) || version_compare( phpversion(), LOGGER_MINIMUM_PHP_VERSION, '<' ) ) {
     require_once get_template_directory() . 'inc/back-compat.php';
     return;
 }
@@ -56,6 +56,8 @@ if ( ! class_exists( 'Aq_Resize' ) ) {
     require_once get_template_directory() . '/inc/Aqua_Resizer/aq_resizer.php';
 }
 
+// Include WordPress shims - support newer functionality.
+require get_template_directory() . '/inc/wordpress-shims.php';
 
 /**
  * Sets the directories (inside your theme) to find .twig files
@@ -68,7 +70,10 @@ Timber::$dirname = array( 'templates', 'views' );
  */
 Timber::$autoescape = false;
 
+// Bootstrap the theme.
+require_once get_template_directory() . '/inc/bootstrap.php';
 
+/* Omit closing PHP tag to avoid "Headers already sent" issues. */
 
 /**
  * We're going to configure our theme inside of a subclass of Timber\Site
