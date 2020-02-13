@@ -145,9 +145,9 @@ class Theme {
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
             new Mime_Types\Component(),
+            new Enqueue_Assets\Component(),
             new Font_Awesome\Component(),
 
-            // new Enqueue_Assets\Component(),
 
             // new Setup_Theme\Component(),
             // new Setup_Admin\Component(),
