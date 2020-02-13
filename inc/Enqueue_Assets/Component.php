@@ -8,25 +8,14 @@
 namespace Logger\Enqueue_Assets;
 
 use Logger\Component_Interface;
-use kirki;
 use function Logger\logger;
 use function add_action;
-use function add_filter;
 use function wp_enqueue_style;
 use function wp_enqueue_script;
 use function wp_style_add_data;
 use function get_theme_file_uri;
 use function get_theme_file_path;
-use function get_theme_mod;
-use function wp_style_is;
-use function post_password_required;
-use function is_singular;
-use function comments_open;
-use function get_comments_number;
 use function apply_filters;
-use function add_query_arg;
-use function add_section;
-use function add_field;
 
 /**
  * Class for managing scripts & stylesheets.
@@ -56,15 +45,6 @@ class Component implements Component_Interface {
     protected $js_files;
 
     /**
-     * Associative array of Google Fonts to load, as $font_name => $font_variants pairs.
-     *
-     * Do not access this property directly, instead use the `getGoogleFonts()` method.
-     *
-     * @var array
-     */
-    protected $google_fonts;
-
-    /**
      * Gets the unique identifier for the theme component.
      *
      * @return string Component slug.
@@ -79,10 +59,9 @@ class Component implements Component_Interface {
      */
     public function initialize()
     {
-        add_action( 'wp_enqueue_scripts', [ $this, 'actionEnqueueStyles' ] );
-        add_action( 'wp_enqueue_scripts', [ $this, 'actionEnqueueScripts' ] );
-        add_action( 'after_setup_theme', [ $this, 'actionAddEditorStyles' ] );
-        add_filter( 'wp_resource_hints', [ $this, 'filterResourceHints' ], 10, 2 );
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueueThemeStyles' ] );
+        add_action( 'wp_enqueue_scripts', [ $this, 'enqueueThemeScripts' ] );
+        add_action( 'after_setup_theme', [ $this, 'enqueueThemeEditorStyles' ] );
     }
 
     /**
@@ -90,7 +69,7 @@ class Component implements Component_Interface {
      *
      * Scripts that are global are enqueued.
      */
-    public function actionEnqueueScripts()
+    public function enqueueThemeScripts()
     {
         $js_uri = get_theme_file_uri( '/assets/dist/scripts/' );
         $js_dir = get_theme_file_path( '/assets/dist/scripts/' );
@@ -107,8 +86,6 @@ class Component implements Component_Interface {
 
         if ( ! is_admin() ) {
             wp_dequeue_style( 'wp-block-library' );
-            wp_dequeue_style( 'coblocks-frontend' );
-            wp_dequeue_style( 'coblocks-block-fonts' );
         }
     }
 
@@ -117,14 +94,8 @@ class Component implements Component_Interface {
      *
      * Stylesheets that are global are enqueued.
      */
-    public function actionEnqueueStyles()
+    public function enqueueThemeStyles()
     {
-        // Enqueue Google Fonts.
-        $google_fonts_url = $this->getGoogleFontsUrl();
-        if ( ! empty( $google_fonts_url ) ) {
-            wp_enqueue_style( 'logger-fonts', $google_fonts_url, [], null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-        }
-
         $css_uri = get_theme_file_uri( '/assets/dist/styles/' );
         $css_dir = get_theme_file_path( '/assets/dist/styles/' );
 
@@ -142,36 +113,10 @@ class Component implements Component_Interface {
     /**
      * Enqueues WordPress theme styles for the editor.
      */
-    public function actionAddEditorStyles()
+    public function enqueueThemeEditorStyles()
     {
-
-        // Enqueue Google Fonts.
-        $google_fonts_url = $this->getGoogleFontsUrl();
-        if ( ! empty( $google_fonts_url ) ) {
-            add_editor_style( $this->getGoogleFontsUrl() );
-        }
-
         // Enqueue block editor stylesheet.
         add_editor_style( 'assets/css/editor/editor-styles.min.css' );
-    }
-
-    /**
-     * Adds preconnect resource hint for Google Fonts.
-     *
-     * @param array  $urls          URLs to print for resource hints.
-     * @param string $relation_type The relation type the URLs are printed.
-     * @return array URLs to print for resource hints.
-     */
-    public function filterResourceHints( array $urls, string $relation_type ) : array
-    {
-        if ( 'preconnect' === $relation_type && wp_style_is( 'logger-fonts', 'queue' ) ) {
-            $urls[] = [
-                'href' => 'https://fonts.gstatic.com',
-                'crossorigin',
-            ];
-        }
-
-        return $urls;
     }
 
     /**
@@ -186,11 +131,6 @@ class Component implements Component_Interface {
         }
 
         $js_files = [
-            'slick' => [
-                'file'    => 'slick.min.js',
-                'deps'    => array( 'jquery' ),
-                'in_foot' => true,
-            ],
             'logger-global' => [
                 'file'    => 'base.js',
                 'deps'    => array( 'jquery' ),
@@ -236,12 +176,6 @@ class Component implements Component_Interface {
                 'file'   => 'base.css',
                 'global' => true,
             ],
-            // 'logger-comments'   => [
-            // 'file'             => 'comments.css',
-            // 'preload_callback' => function () {
-            // return ! post_password_required() && is_singular() && ( comments_open() || get_comments_number() );
-            // },
-            // ],
         ];
 
         /**
@@ -275,69 +209,5 @@ class Component implements Component_Interface {
         }
 
         return $this->css_files;
-    }
-
-    /**
-     * Returns Google Fonts used in theme.
-     *
-     * @return array Associative array of $font_name => $font_variants pairs.
-     */
-    protected function getGoogleFonts() : array
-    {
-        if ( is_array( $this->google_fonts ) ) {
-            return $this->google_fonts;
-        }
-
-        $google_fonts = [
-            'IBM+Plex+Sans'  => [ '200', '300', '400', '600', '700' ],
-            'IBM+Plex+Serif' => [ '300', '400', '500' ],
-        ];
-
-        /**
-         * Filters default Google Fonts.
-         *
-         * @param array $google_fonts Associative array of $font_name => $font_variants pairs.
-         */
-        $this->google_fonts = (array) apply_filters( 'logger_google_fonts', $google_fonts );
-
-        return $this->google_fonts;
-    }
-
-    /**
-     * Returns the Google Fonts URL to use for enqueuing Google Fonts CSS.
-     *
-     * Uses `latin` subset by default. To use other subsets, add a `subset` key to $query_args and the desired value.
-     *
-     * @return string Google Fonts URL, or empty string if no Google Fonts should be used.
-     */
-    protected function getGoogleFontsUrl() : string
-    {
-        $google_fonts = $this->getGoogleFonts();
-
-        if ( empty( $google_fonts ) ) {
-            return '';
-        }
-
-        $font_families = [];
-
-        foreach ( $google_fonts as $font_name => $font_variants ) {
-            if ( ! empty( $font_variants ) ) {
-                if ( ! is_array( $font_variants ) ) {
-                    $font_variants = explode( ',', str_replace( ' ', '', $font_variants ) );
-                }
-
-                $font_families[] = $font_name . ':' . implode( ',', $font_variants );
-                continue;
-            }
-
-            $font_families[] = $font_name;
-        }
-
-        $query_args = [
-            'family'  => implode( '|', $font_families ),
-            'display' => 'swap',
-        ];
-
-        return add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
     }
 }
