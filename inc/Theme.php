@@ -144,6 +144,8 @@ class Theme {
         $components = [
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
+            new Mime_Types\Component(),
+            new Font_Awesome\Component(),
 
             // new Enqueue_Assets\Component(),
 
