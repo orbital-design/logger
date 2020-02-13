@@ -17,12 +17,18 @@
  * Methods for TimberHelper can be found in the /lib sub-directory
  *
  * @package  WordPress
- * @subpackage  Timber
- * @since    Timber 0.1
+ * @subpackage  Logger
+ * @since   Logger 1.0
+ *
  */
 
-$context = Timber::context();
+    namespace Logger;
+    use Timber\Timber;
+    use Timber\Post;
 
-$timber_post     = new Timber\Post();
-$context['post'] = $timber_post;
-Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
+    $context         = Timber::context();
+
+    $timber_post     = new Post();
+    $context['post'] = $timber_post;
+
+    Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );

@@ -9,15 +9,23 @@
  * Methods for TimberHelper can be found in the /lib sub-directory
  *
  * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.1
+ * @subpackage  Logger
+ * @since   Logger 1.0
+ *
  */
 
-$context          = Timber::context();
-$context['posts'] = new Timber\PostQuery();
-$context['foo']   = 'bar';
-$templates        = array( 'index.twig' );
-if ( is_home() ) {
-	array_unshift( $templates, 'front-page.twig', 'home.twig' );
-}
-Timber::render( $templates, $context );
+    namespace Logger;
+    use Timber\Timber;
+    use Timber\PostQuery;
+
+
+    $context          = Timber::context();
+    $context['posts'] = new PostQuery();
+    $context['foo']   = 'bar';
+
+    $templates        = array( 'index.twig' );
+    if ( is_home() ) {
+        array_unshift( $templates, 'front-page.twig', 'home.twig' );
+    }
+
+    Timber::render( $templates, $context );
