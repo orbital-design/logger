@@ -147,6 +147,7 @@ class Theme {
 
             /* Site & Theme Setup */
             new Helpers_Theme\Component(),
+            new Helpers_Custom_Logo\Component(),
             new Helpers_Customiser\Component(),
             new Helpers_Editor\Component(),
             new Clean_Theme_Head\Component(),
@@ -173,9 +174,6 @@ class Theme {
             new Page_Compression\Component(),
 
 
-            // new Setup_Login\Component(),
-            // new Setup_Custom_Logo\Component(),
-            // new Setup_Customiser\Component(),
             // new Setup_Menus\Component(),
             // new Setup_Search\Component(),
 
