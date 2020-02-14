@@ -150,6 +150,7 @@ class Theme {
             new Helpers_Custom_Logo\Component(),
             new Helpers_Customiser\Component(),
             new Helpers_Editor\Component(),
+            new Helpers_Search\Component(),
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
             new Mime_Types\Component(),
@@ -175,11 +176,7 @@ class Theme {
 
 
             // new Setup_Menus\Component(),
-            // new Setup_Search\Component(),
-
-            // // new Image_Sizes\Component(),
-            // // new Sidebars\Component(),
-            // // new Post_Thumbnails\Component(),
+            // new Setup_Search\Component()
         ];
 
         return $components;
