@@ -148,9 +148,13 @@ class Theme {
             new WP_Emoji\Component(),
             new Mime_Types\Component(),
             new Enqueue_Assets\Component(),
+
+            /* Third Party Integrations */
             new Google_Fonts\Component(),
             new Font_Awesome\Component(),
 
+            /* Plugins and Plugin Extenions */
+            // new Modify_Acf\Component(),      // Comment this out if you are nor using Advanced Custom Fields
 
             // new Setup_Admin\Component(),
             // new Setup_Login\Component(),
@@ -167,7 +171,7 @@ class Theme {
 
             // // new Extend_Editor\Component(),
             // new Extend_Ninja_Forms\Component(),
-            // new Extend_ACF\Component(),
+            //
 
             // // new Image_Sizes\Component(),
             // // new Sidebars\Component(),
