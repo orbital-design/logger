@@ -16,7 +16,22 @@ use function add_filter;
 use function remove_filter;
 
 /**
- * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
+ * Class for removing WP Emoji
+ *
+ * Adds actions to:
+ * * `init`
+ *
+ * Removes Actions from:
+ * * `admin_print_styles`
+ * * `wp_head`
+ * * `admin_print_scripts`
+ * * `wp_print_styles`
+ * * `wp_mail`
+ * * `the_content_feed`
+ * * `comment_text_rss`
+ *
+ * Manipulates Filters:
+ * * `tiny_mce_plugins`
  */
 class Component implements Component_Interface {
 
