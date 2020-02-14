@@ -172,8 +172,8 @@ class Theme {
             // // new Sidebars\Component(),
             // // new Post_Thumbnails\Component(),
 
-            // // FED Rendering
-            // // new Minify_Site\Component(),
+            // FED Rendering
+            new Minify_Site\Component(),
         ];
 
         return $components;
