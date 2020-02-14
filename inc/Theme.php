@@ -155,6 +155,7 @@ class Theme {
 
             /* Admin Setup & Modfications */
             new Helpers_Admin\Component(),
+            new Helpers_Login\Component(),
 
             /* Third Party Integrations */
             new Analytics_Tools\Component(),
