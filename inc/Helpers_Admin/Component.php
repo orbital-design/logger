@@ -71,7 +71,7 @@ class Component implements Component_Interface {
      */
     public function loggerCustomAdminFooter()
     {
-        echo '<span id="footer-thankyou">Built with <span class="heart" style="color: red; margin-right: 5px; font-size: 16px;">&#9829;</span> using the <strong>Logger</strong> framework by <a href="https://www.orbital.co.uk" class="orbital" style="font-weight: 900; color: #FF6600; font-style: initial; font-family: helvetica;" target="_blank">Orbital</a></span> in sunny Bournemouth.';
+        echo '<span id="footer-thankyou">Built with <span class="heart" style="color: red; margin-right: 5px; font-size: 16px;">&#9829;</span> using the <strong>Logger</strong> framework by <a href="https://www.twitter.com/addzycullen" class="jelly" style="font-weight: 900; color: #FF6600; font-style: initial; font-family: helvetica;" target="_blank">@addzycullen</a></span> in sunny Bournemouth.';
     }
 
     /**
