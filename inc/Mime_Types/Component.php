@@ -13,7 +13,10 @@ use Logger\Component_Interface;
 use function add_filter;
 
 /**
- * Class for adding basic theme support for mime types.
+ * Class for adding basic theme support for more mime types.
+ *
+ * Adds actions to following Hooks:
+ * * `upload_mimes`
  */
 class Component implements Component_Interface {
 
