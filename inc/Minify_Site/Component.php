@@ -11,19 +11,21 @@
 namespace Logger\Minify_Site;
 
 use Logger\Component_Interface;
-use Logger\Templating_Component_Interface;
 use function Logger\logger;
 use function is_admin;
+use function add_action;
 
 require_once get_template_directory() . '/inc/Tidy_Html_Minfier/TidyMinify.php';
 use TinyMinify;
 
 /**
- * Class for W3C Fix and HTML minifier
+ * Class for compressing page output
  *
- * @link https://wordpress.org/gutenberg/handbook/extensibility/theme-support/
+ * Adds actions to following Hooks:
+ * * `before_template_render`
+ * * `after_template_render`
  */
-class Component implements Component_Interface, Templating_Component_Interface {
+class Component implements Component_Interface {
 
     /**
      * Gets the unique identifier for the theme component.
@@ -38,21 +40,10 @@ class Component implements Component_Interface, Templating_Component_Interface {
      /**
      * Adds the action and filter hooks to integrate with WordPress.
      */
-    public function initialize() {}
+    public function initialize() {
+        add_action( 'before_template_render', [ $this, 'loggerCompressionBufferStart' ] );
+        add_action( 'after_template_render', [ $this, 'loggerCompressionBufferFinish' ] );
 
-    /**
-     * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `logger()`.
-     *
-     * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
-     *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
-     *               adding support for further arguments in the future.
-     */
-    public function templateTags() : array
-    {
-        return [
-            'loggerCompressionBufferStart'  => [ $this, 'loggerCompressionBufferStart' ],
-            'loggerCompressionBufferFinish'         => [ $this, 'loggerCompressionBufferFinish' ]
-        ];
     }
 
     /**
