@@ -151,28 +151,29 @@ class Theme {
             new WP_Emoji\Component(),
             new Mime_Types\Component(),
             new Enqueue_Assets\Component(),
+            new Social_Media\Component(),
 
             /* Third Party Integrations */
             new Analytics_Tools\Component(),
             new Google_Fonts\Component(),
             new Font_Awesome\Component(),
 
-            /* Logger Custom Features */
-            new Reading_Time\Component(),
-            new Page_Compression\Component(),
-
             /* Plugins and Plugin Extenions */
             // new Helpers_Acf\Component(),         // Comment this out if you are nor using Advanced Custom Fields
             // new Helpers_Ninja_Forms\Component(), // Comment this out if you are nor using Ninja Forms
 
+            /* Logger Custom Features */
+            new Reading_Time\Component(),
+            new Page_Compression\Component(),
+
+
+
             // new Setup_Admin\Component(),
             // new Setup_Login\Component(),
-            // new Setup_Custom_Background\Component(),
             // new Setup_Custom_Logo\Component(),
             // new Setup_Customiser\Component(),
             // new Setup_Menus\Component(),
             // new Setup_Editor\Component(),
-            // new Setup_Social_Icons\Component(),
             // new Setup_Search\Component(),
 
             // // new Image_Sizes\Component(),
