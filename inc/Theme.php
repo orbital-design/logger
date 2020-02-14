@@ -157,6 +157,9 @@ class Theme {
             new Google_Fonts\Component(),
             new Font_Awesome\Component(),
 
+            /* Logger Features */
+            new Reading_Time\Component(),
+
             /* Plugins and Plugin Extenions */
             // new Helpers_Acf\Component(),         // Comment this out if you are nor using Advanced Custom Fields
             // new Helpers_Ninja_Forms\Component(), // Comment this out if you are nor using Ninja Forms
@@ -168,13 +171,8 @@ class Theme {
             // new Setup_Customiser\Component(),
             // new Setup_Menus\Component(),
             // new Setup_Editor\Component(),
-            // new Setup_Analytics\Component(),
             // new Setup_Social_Icons\Component(),
-            // // new Setup_User_Cookie\Component(),
             // new Setup_Search\Component(),
-            // new Setup_Reading_Time\Component(),
-
-            // // new Extend_Editor\Component(),
 
             // // new Image_Sizes\Component(),
             // // new Sidebars\Component(),
