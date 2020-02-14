@@ -97,43 +97,44 @@ class Component implements Component_Interface {
         /*
          * Add support custom font sizes.
          *
-         * Add the line below to disable the custom color picker in the editor.
+         * Add the line below to disable the custom font size options in the editor.
          * add_theme_support( 'disable-custom-font-sizes' );
          *
          * Slugs must match core slugs to use CSS Custom props, this means you have 5 sizes to play with
          */
         add_theme_support('disable-custom-font-sizes');
+
         add_theme_support(
             'editor-font-sizes',
             [
                 [
                     'name'      => __( 'Small', 'logger' ),
-                    'size'      => 10,
+                    'size'      => 10, // Should be overwritten with a CSS Custom Prop in editor.css
                     'slug'      => 'small',
                 ],
                 [
                     'name'      => __( 'Normal', 'logger' ),
-                    'size'      => 20,
+                    'size'      => 20, // Should be overwritten with a CSS Custom Prop in editor.css
                     'slug'      => 'normal',
                 ],
                 [
                     'name'      => __( 'Medium', 'logger' ),
-                    'size'      => 30,
+                    'size'      => 30, // Should be overwritten with a CSS Custom Prop in editor.css
                     'slug'      => 'medium',
                 ],
                 [
                     'name'      => __( 'Large', 'logger' ),
-                    'size'      => 40,
+                    'size'      => 40, // Should be overwritten with a CSS Custom Prop in editor.css
                     'slug'      => 'large',
                 ],
                 [
                     'name'      => __( 'Extra Large', 'logger' ),
-                    'size'      => 50,
+                    'size'      => 50, // Should be overwritten with a CSS Custom Prop in editor.css
                     'slug'      => 'extra-large',
                 ],
                 [
                     'name'      => __( 'Extra Extra Large', 'logger' ),
-                    'size'      => 60,
+                    'size'      => 60, // Should be overwritten with a CSS Custom Prop in editor.css
                     'slug'      => 'extra-extra-large',
                 ],
             ]
