@@ -147,6 +147,7 @@ class Theme {
 
             /* Site & Theme Setup */
             new Helpers_Theme\Component(),
+            new Helpers_Editor\Component(),
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
             new Mime_Types\Component(),
@@ -175,7 +176,6 @@ class Theme {
             // new Setup_Custom_Logo\Component(),
             // new Setup_Customiser\Component(),
             // new Setup_Menus\Component(),
-            // new Setup_Editor\Component(),
             // new Setup_Search\Component(),
 
             // // new Image_Sizes\Component(),

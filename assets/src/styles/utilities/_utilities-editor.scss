@@ -26,27 +26,27 @@
 }
 
 .has-small-font-size {
-    font-size: var(--f-s-small);
+    font-size: var(--f-s-small) !important;
 }
 
 .has-normal-font-size {
-    font-size: var(--f-s-normal);
+    font-size: var(--f-s-normal) !important;
 }
 
 .has-medium-font-size {
-    font-size: var(--f-s-medium);
+    font-size: var(--f-s-medium) !important;
 }
 
 .has-large-font-size {
-    font-size: var(--f-s-large);
+    font-size: var(--f-s-large) !important;
 }
 
 .has-extra-large-font-size {
-    font-size: var(--f-s-extra-large);
+    font-size: var(--f-s-extra-large) !important;
 }
 
 .has-extra-extra-large-font-size {
-    font-size: var(--f-s-extra-extra-large);
+    font-size: var(--f-s-extra-extra-large) !important;
 }
 
 .has-text-align-left {
