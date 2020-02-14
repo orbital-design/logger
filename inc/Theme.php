@@ -147,6 +147,7 @@ class Theme {
 
             /* Site & Theme Setup */
             new Helpers_Theme\Component(),
+            new Helpers_Customiser\Component(),
             new Helpers_Editor\Component(),
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
