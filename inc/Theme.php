@@ -142,7 +142,10 @@ class Theme {
     protected function getDefaultComponents() : array
     {
         $components = [
+            /* Timber & Twig Extensions */
             new Timber_Config\Component(),
+
+            /* Site & Theme Setup */
             new Theme_Setup\Component(),
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
@@ -154,7 +157,8 @@ class Theme {
             new Font_Awesome\Component(),
 
             /* Plugins and Plugin Extenions */
-            // new Modify_Acf\Component(),      // Comment this out if you are nor using Advanced Custom Fields
+            // new Config_Acf\Component(),          // Comment this out if you are nor using Advanced Custom Fields
+            // new Config_Ninja_Forms\Component(),  // Comment this out if you are nor using Ninja Forms
 
             // new Setup_Admin\Component(),
             // new Setup_Login\Component(),
@@ -170,8 +174,6 @@ class Theme {
             // new Setup_Reading_Time\Component(),
 
             // // new Extend_Editor\Component(),
-            // new Extend_Ninja_Forms\Component(),
-            //
 
             // // new Image_Sizes\Component(),
             // // new Sidebars\Component(),
