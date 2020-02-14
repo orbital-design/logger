@@ -153,6 +153,7 @@ class Theme {
             new Enqueue_Assets\Component(),
 
             /* Third Party Integrations */
+            new Analytics_Tools\Component(),
             new Google_Fonts\Component(),
             new Font_Awesome\Component(),
 
