@@ -142,6 +142,7 @@ class Theme {
     protected function getDefaultComponents() : array
     {
         $components = [
+            new Timber_Config\Component(),
             new Theme_Setup\Component(),
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
