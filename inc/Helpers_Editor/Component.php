@@ -80,8 +80,7 @@ class Component implements Component_Interface {
          * Add the line below to disable the custom color picker in the editor.
          * add_theme_support( 'disable-custom-colors' );
          */
-
-        // add_theme_support( 'disable-custom-colors' );
+        add_theme_support( 'disable-custom-colors' );
 
         $colors = get_theme_mod( 'logger_color_palette_repeater' );
         $palette = [];
