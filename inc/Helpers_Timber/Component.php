@@ -1,6 +1,6 @@
 <?php
 /**
- * Logger\Timber_Config\Component class
+ * Logger\Helpers_Timber\Component class
  *
  * @since 1.0.0
  *
@@ -8,7 +8,7 @@
  */
 
 
-namespace Logger\Timber_Config;
+namespace Logger\Helpers_Timber;
 
 use Logger\Component_Interface;
 use Logger\Templating_Component_Interface;
@@ -34,7 +34,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
      */
     public function getSlug() : string
     {
-        return 'timber_config';
+        return 'helpers_timber';
     }
 
     /**

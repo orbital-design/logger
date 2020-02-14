@@ -1,13 +1,13 @@
 <?php
 /**
- * Logger\Modify_Acf\Component class
+ * Logger\Helpers_Acf\Component class
  *
  * @since 1.0.0
  *
  * @package Logger
  */
 
-namespace Logger\Modify_Acf;
+namespace Logger\Helpers_Acf;
 
 use Logger\Component_Interface;
 use acf;
@@ -28,7 +28,7 @@ class Component implements Component_Interface {
      */
     public function getSlug() : string
     {
-        return 'modify_acf';
+        return 'helpers_acf';
     }
 
     /**

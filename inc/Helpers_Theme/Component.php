@@ -1,13 +1,13 @@
 <?php
 /**
- * Logger\Theme_Setup\Component class
+ * Logger\Helpers_Theme\Component class
  *
  * @since 1.0.0
  *
  * @package Logger
  */
 
-namespace Logger\Theme_Setup;
+namespace Logger\Helpers_Theme;
 
 use Logger\Component_Interface;
 use Logger\Templating_Component_Interface;
@@ -39,7 +39,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
      */
     public function getSlug() : string
     {
-        return 'setup_theme';
+        return 'helpers_theme';
     }
 
     /**

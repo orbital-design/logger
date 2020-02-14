@@ -1,13 +1,13 @@
 <?php
 /**
- * Logger\Extend_Ninja_Forms\Component class
+ * Logger\Helpers_Ninja_Forms\Component class
  *
  * @since 1.0.0
  *
  * @package Logger
  */
 
-namespace Logger\Extend_Ninja_Forms;
+namespace Logger\Helpers_Ninja_Forms;
 
 use Logger\Component_Interface;
 use function add_action;
@@ -27,7 +27,7 @@ class Component implements Component_Interface {
      */
     public function getSlug() : string
     {
-        return 'extend_ninja_forms';
+        return 'helpers_ninja_forms';
     }
 
     /**
