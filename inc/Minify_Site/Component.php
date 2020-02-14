@@ -15,7 +15,7 @@ use function Logger\logger;
 use function is_admin;
 use function add_action;
 
-require_once get_template_directory() . '/inc/Tidy_Html_Minfier/TidyMinify.php';
+require_once get_template_directory() . '/inc/Markup_Compression/TidyMinify.php';
 use TinyMinify;
 
 /**

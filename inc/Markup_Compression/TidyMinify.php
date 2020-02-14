@@ -4,7 +4,7 @@
 // namespace Minifier;
 // use Minifier\TinyHtmlMinifier;
 
-require_once get_template_directory() . '/inc/Tidy_Html_Minfier/TinyHtmlMinifier.php';
+require_once get_template_directory() . '/inc/Markup_Compression/TinyHtmlMinifier.php';
 
 class TinyMinify
 {
