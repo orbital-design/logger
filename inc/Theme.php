@@ -153,6 +153,9 @@ class Theme {
             new Enqueue_Assets\Component(),
             new Social_Media\Component(),
 
+            /* Admin Setup & Modfications */
+            new Helpers_Admin\Component(),
+
             /* Third Party Integrations */
             new Analytics_Tools\Component(),
             new Google_Fonts\Component(),
@@ -167,8 +170,6 @@ class Theme {
             new Page_Compression\Component(),
 
 
-
-            // new Setup_Admin\Component(),
             // new Setup_Login\Component(),
             // new Setup_Custom_Logo\Component(),
             // new Setup_Customiser\Component(),
