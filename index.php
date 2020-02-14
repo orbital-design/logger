@@ -28,4 +28,12 @@
         array_unshift( $templates, 'front-page.twig', 'home.twig' );
     }
 
-    Timber::render( $templates, $context );
+    // Start our Output Buffer
+    logger()->before_template_render();
+    // logger()->loggerCompressionBufferStart();
+
+    Timber::render( $templates, $context, false );
+
+    // Get contents of our Output Buffer and return it instead of default render.
+    logger()->after_template_render();
+    // logger()->loggerCompressionBufferFinish();

@@ -31,4 +31,11 @@
     $timber_post     = new Post();
     $context['post'] = $timber_post;
 
-    Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
+    // Fire any actions before we render our page.
+    logger()->before_template_render();
+
+    // Render our Content through Twig
+    Timber::render( array( 'page-' . $timber_post->post_name . '.twig', 'page.twig' ), $context, false );
+
+    // Fire any actions after we have rendered our page.
+    logger()->after_template_render();
