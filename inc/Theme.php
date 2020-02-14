@@ -173,10 +173,6 @@ class Theme {
             /* Logger Custom Features */
             new Reading_Time\Component(),
             new Page_Compression\Component(),
-
-
-            // new Setup_Menus\Component(),
-            // new Setup_Search\Component()
         ];
 
         return $components;
