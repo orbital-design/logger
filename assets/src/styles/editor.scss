@@ -1,4 +1,4 @@
-@import 'utilities/mixins';
+@import 'global/utilities/mixins';
 @import 'custom-properties';
 
 .wp-block {
@@ -49,4 +49,4 @@
 @import 'editor-blocks/core/heading';
 @import 'editor-blocks/core/paragraph';
 
-@import 'utilities/utilities-editor';
+@import 'global/utilities/utilities-editor';

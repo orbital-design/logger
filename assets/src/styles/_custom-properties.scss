@@ -1,52 +1,18 @@
 :root {
-    @include defineColorHSL(--grey-dark, 150, 3%, 13%);
-    @include defineColorHSL(--grey-light, 0, 0%, 95%);
-    --grey-light: #f3f3f3;
-    --grey-medium: #404040;
-    // --grey-dark: #212322;
-    --grey-off: #a2aaad;
-
-    --yellow-100: #fff8e6;
-    --yellow-200: #feeec0;
-    --yellow-300: #fde39a;
-    --yellow-400: #fccf4e;
-    --yellow-500: #fbba02;
-    --yellow-600: #e2a702;
-    --yellow-700: #977001;
-    --yellow-800: #715401;
-    --yellow-900: #4b3801;
-
     --white: #ffffff;
-    --black: #000000;
+    --black: #252525;
     --text-color: #5d5d5d;
-    --text-soft: #999999;
 
     --f-w-regular: 300;
     --f-w-strong: 600;
     --f-w-heavy: 700;
-
-    // --f-s-small: rem-calc(14px);
-    // --f-s-regular: rem-calc(16px);
-    // --f-s-medium: rem-calc(18px);
-    // --f-s-large: rem-calc(28px);
-    // --f-s-larger: rem-calc(36px);
-    // --f-s-extra-large: rem-calc(42px);
 
     --f-f-sans: 'IBM Plex Sans', Arial, 'Helvetica Neue', sans-serif;
     --f-f-serif: 'IBM Plex Serif', var(--sans-serif-font-family);
     --sans-serif-font-family: 'IBM Plex Sans', Arial, 'Helvetica Neue', sans-serif;
     --serif-font-family: 'IBM Plex Serif', var(--sans-serif-font-family);
 
-    --header-height: 80px;
-    --header-height-scrolled: 50px;
-    --header-transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-    --modal-width: 800px;
-    --loader-width: calc(var(--modal-width) / 10);
-
-    --def-block-vert-pad: rem-calc(36px);
     --gutter-width: rem-calc(10px);
-    --page-top-padding: 90px;
     --width-norm: rem-calc(1240px);
     --width-wide: rem-calc(1500px);
     --width-full: 100%;
@@ -54,7 +20,7 @@
     --hamburger-layer-width: 30px;
     --hamburger-layer-height: 1px;
     --hamburger-layer-spacing: 10px;
-    --hamburger-layer-color: var(--grey-dark);
+    --hamburger-layer-color: var(--black);
     --hamburger-layer-border-radius: 4px;
     --hamburger-hover-opacity: 0.7;
     --hamburger-active-layer-color: var(--hamburger-layer-color);
@@ -78,42 +44,18 @@
 }
 
 @media (--viewport-lp) {
-    :root {
-        --page-top-padding: 90px;
-    }
 }
 
 @media (--viewport-s) {
-    :root {
-        --page-top-padding: 100px;
-    }
 }
 
 @media (--viewport-m) {
-    :root {
-        --page-top-padding: 125px;
-
-        // --f-s-small: rem-calc(16px);
-        // --f-s-regular: rem-calc(20px);
-        // --f-s-medium: rem-calc(24px);
-        // --f-s-large: rem-calc(30px);
-        // --f-s-larger: rem-calc(50px);
-        // --f-s-extra-large: rem-calc(60px);
-    }
 }
 
 @media (--viewport-l) {
-    :root {
-        --page-top-padding: 150px;
-        --header-height: 105px;
-        --header-height-scrolled: 60px;
-    }
 }
 
 @media (--viewport-xl) {
-    :root {
-        // --page-top-padding: 175px;
-    }
 }
 
 :root {

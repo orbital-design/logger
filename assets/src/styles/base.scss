@@ -7,47 +7,30 @@ all of your Sass files so they can compile into one
 CSS file.
 
 ******************************************************************/
-
-@function rgb($args...) {
-    @return #{'rgb(#{$args})'};
-}
-@function rgba($args...) {
-    @return #{'rgba(#{$args})'};
-}
-@function hsl($args...) {
-    @return #{'hsl(#{$args})'};
-}
-@function hsla($args...) {
-    @return #{'hsla(#{$args})'};
-}
-
-@import 'utilities/mixins';
+@import 'global/utilities/mixins';
 @import 'custom-properties';
 
-@import 'utilities/normalize';
-@import 'utilities/grid';
+@import 'global/utilities/normalize';
+@import 'global/utilities/grid';
 
-@import 'utilities/settings';
+@import 'global/utilities/settings';
 
-@import 'elements/buttons';
-@import 'elements/social-icons';
-@import 'components/slick-slider/slick';
-@import 'components/global/progress-indicator';
+@import 'global/elements/buttons';
+@import 'global/elements/social-icons';
+@import 'global/elements/progress-indicator';
 
-@import 'components/global/loading-overlay';
-@import 'components/global/user-popup';
-@import 'components/global/forms';
+@import 'global/forms';
 
-@import 'components/masthead/header';
-@import 'components/masthead/branding';
-@import 'components/masthead/navigation';
-@import 'components/masthead/navigation-overlay';
+@import 'global/masthead/header';
+@import 'global/masthead/branding';
+@import 'global/masthead/navigation';
+@import 'global/masthead/navigation-overlay';
 
-@import 'components/headers/header-simple';
-@import 'components/headers/header-detailed';
-@import 'components/headers/header-search';
-@import 'components/footers/site-footer';
-@import 'components/loops/search';
+@import 'global/headers/header-simple';
+@import 'global/headers/header-detailed';
+@import 'global/headers/header-search';
+@import 'global/footers/site-footer';
+@import 'templates/search';
 
 // WordPress Core Blocks.
 @import 'editor-blocks/core/heading';
@@ -66,9 +49,7 @@ CSS file.
 @import 'editor-blocks/sophia/360';
 @import 'editor-blocks/sophia/dynamic';
 
-@import 'utilities/utilities';
-
-@import 'ani/base';
+@import 'global/utilities/utilities';
 
 .block-vslider {
     background-color: #a1acb0;
