@@ -1,6 +1,6 @@
 <?php
 /**
- * Logger\Minify_Site\Component class
+ * Logger\Page_Compression\Component class
  *
  * @since 1.0.0
  *
@@ -8,7 +8,7 @@
  */
 
 
-namespace Logger\Minify_Site;
+namespace Logger\Page_Compression;
 
 use Logger\Component_Interface;
 use function Logger\logger;
@@ -34,7 +34,7 @@ class Component implements Component_Interface {
      */
     public function getSlug() : string
     {
-        return 'minify_site';
+        return 'page_compression';
     }
 
      /**

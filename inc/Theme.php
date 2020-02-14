@@ -157,8 +157,9 @@ class Theme {
             new Google_Fonts\Component(),
             new Font_Awesome\Component(),
 
-            /* Logger Features */
+            /* Logger Custom Features */
             new Reading_Time\Component(),
+            new Page_Compression\Component(),
 
             /* Plugins and Plugin Extenions */
             // new Helpers_Acf\Component(),         // Comment this out if you are nor using Advanced Custom Fields
@@ -177,9 +178,6 @@ class Theme {
             // // new Image_Sizes\Component(),
             // // new Sidebars\Component(),
             // // new Post_Thumbnails\Component(),
-
-            // FED Rendering
-            new Minify_Site\Component(),
         ];
 
         return $components;
