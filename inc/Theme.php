@@ -151,6 +151,7 @@ class Theme {
             new Helpers_Customiser\Component(),
             new Helpers_Editor\Component(),
             new Helpers_Search\Component(),
+            new Helpers_Embeds\Component(),
             new Clean_Theme_Head\Component(),
             new WP_Emoji\Component(),
             new Mime_Types\Component(),
