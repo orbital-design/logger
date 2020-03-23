@@ -149,7 +149,7 @@ class Theme {
             new Helpers_Theme\Component(),
             new Helpers_Custom_Logo\Component(),
             new Helpers_Customiser\Component(),
-            new Helpers_Editor\Component(),
+            // new Helpers_Editor\Component(),
             new Helpers_Search\Component(),
             new Helpers_Embeds\Component(),
             new Clean_Theme_Head\Component(),
@@ -161,6 +161,7 @@ class Theme {
             /* Admin Setup & Modfications */
             new Helpers_Admin\Component(),
             new Helpers_Login\Component(),
+            new Secure_Login\Component(),
 
             /* Third Party Integrations */
             new Analytics_Tools\Component(),
