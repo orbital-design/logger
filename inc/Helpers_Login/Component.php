@@ -51,7 +51,7 @@ class Component implements Component_Interface {
         add_action( 'login_header', [ $this, 'startPageOutputBuffering' ] );
         add_action( 'login_footer', [ $this, 'endPageOutputBuffering' ] );
 
-        // add_filter( 'enable_login_autofocus', '__return_false' );
+        add_filter( 'enable_login_autofocus', '__return_false' );
 
         add_filter(
             'login_errors',
