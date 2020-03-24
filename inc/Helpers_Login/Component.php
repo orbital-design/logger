@@ -20,6 +20,7 @@ use function get_theme_file_path;
 use function home_url;
 use function get_option;
 use function DOMDocument;
+use function get_template_part;
 
 /**
  * Class for customising Default Login Screen.
@@ -47,8 +48,10 @@ class Component implements Component_Interface {
         add_filter( 'login_headerurl', [ $this, 'LoggerChangeLoginLogoUrl' ] );
         add_filter( 'login_headertext', [ $this, 'LoggerChangeLoginLogoAltText' ] );
 
-        add_action( 'login_head', [ $this, 'startPageOutputBuffering' ] );
+        add_action( 'login_header', [ $this, 'startPageOutputBuffering' ] );
         add_action( 'login_footer', [ $this, 'endPageOutputBuffering' ] );
+
+        // add_filter( 'enable_login_autofocus', '__return_false' );
 
         add_filter(
             'login_errors',
@@ -56,6 +59,14 @@ class Component implements Component_Interface {
                 return null;
             }
         );
+    }
+
+    public function write_log($log) {
+        if (is_array($log) || is_object($log)) {
+        error_log(print_r($log, true));
+        } else {
+        error_log($log);
+        }
     }
 
     /**
@@ -77,6 +88,8 @@ class Component implements Component_Interface {
 
             wp_enqueue_style( $handle, $src, [], $version, false );
         }
+
+        wp_dequeue_style( 'login' );
     }
 
     /**
@@ -106,6 +119,11 @@ class Component implements Component_Interface {
     {
 
         // $buffer = Logger()->sanitizeOutput( $buffer );
+
+
+        $buffer = include( dirname(__DIR__) . '/Helpers_Login/login-form.php' );
+
+        $this->write_log($test);
         // $buffer = preg_replace( '/<p>(.*?)<\/p>/', '<div class="form-field">$1</div>', $buffer );
         // $buffer = preg_replace( '/<p class="(.*?)">(.*?)<\/p>/', '<div class="$1">$2</div>', $buffer );
         // $buffer = str_replace( '<br />', '', $buffer );
