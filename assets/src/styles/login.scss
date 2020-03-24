@@ -13,8 +13,15 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
 :root {
+    --font-family: 'Quicksand', Helvetica, Arial, sans-serif;
     --black: #11110f;
+    --white: #ffffff;
+    --orange: #ff6500;
+    --grey: #c4c4c4;
+    --base-fs: 20px;
 }
 .login {
     background-color: var(--black);
@@ -46,210 +53,174 @@ http://codex.wordpress.org/Creating_Admin_Themes
             }
         }
     }
-    // #login {
-    //     box-shadow: none;
-    //     background: none;
-    //     transform: translateX(100%);
-
-    //     width: 360px;
-    //     padding: 0;
-    //     margin: 0;
-    //     border-radius: 8px;
-
-    //     .form-field {
-    //         margin: 0 0 1rem;
-    //         position: relative;
-
-    //         label {
-    //             position: absolute;
-
-    //             left: 12px;
-
-    //             z-index: 10;
-    //             display: block;
-    //             cursor: default;
-    //             line-height: 1;
-    //             z-index: 0;
-    //             color: #4a5568;
-    //             transition: all 0.25s ease-out;
-    //             font-size: 8px;
-    //             top: 10px;
-    //             transform: translateY(0%);
-    //         }
-
-    //         input {
-    //             margin: 0;
-    //             font-weight: 300;
-    //             font-size: 16px;
-    //             background: none;
-    //             padding: 18px 12px 0 !important;
-    //             height: 45px;
-    //             width: 100%;
-    //             outline: 0;
-    //             position: relative;
-    //             z-index: 1;
-    //             background: none;
-    //             border-radius: 4px;
-    //             border: 1px solid #f1f1f1;
-    //             box-shadow: 0 1px 0 0 hsla(0, 0%, 90%, 0.5);
-    //             transition: box-shadow 0.15s ease-out;
-
-    //             &[aria-describedby='login_error'] {
-    //                 border: 1px solid #dc3232;
-    //                 border-left: 3px solid #dc3232;
-    //             }
-
-    //             &::placeholder {
-    //                 opacity: 0;
-    //             }
-
-    //             &:placeholder-shown {
-    //                 + label {
-    //                     font-size: 14px;
-    //                     transition: all 0.25s ease-out;
-
-    //                     top: 50%;
-    //                     transform: translateY(-50%);
-    //                 }
-    //             }
-
-    //             &:focus {
-    //                 + label {
-    //                     transition: all 0.25s ease-out;
-    //                     font-size: 8px;
-    //                     top: 10px;
-    //                     transform: none;
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     .forgetmenot {
-    //         margin: 8px 0 0;
-    //         position: relative;
-
-    //         label[for='rememberme'] {
-    //             margin: 0;
-    //             font-weight: 300;
-    //             font-size: 14px;
-    //             input[type='checkbox'] {
-    //                 margin: 0 6px 0 0;
-    //                 font-weight: 300;
-    //                 font-size: 16px;
-    //                 outline: 0;
-    //                 z-index: 1;
-    //                 background: none;
-    //                 border-radius: 4px;
-    //                 border: 1px solid #f1f1f1;
-    //                 box-shadow: 0 1px 0 0 hsla(0, 0%, 90%, 0.5);
-    //                 transition: box-shadow 0.15s ease-out;
-    //                 padding: 0 !important;
-    //                 height: 24px;
-    //                 width: 24px;
-    //                 position: relative;
-
-    //                 &:checked:before {
-    //                     content: '\f147';
-    //                     margin: 0 auto;
-    //                     color: #ff6500;
-    //                     top: 50%;
-    //                     transform: translateY(-50%);
-    //                     position: absolute;
-    //                     left: -1px;
-    //                     right: 0;
-    //                     width: 24px;
-    //                     font-size: 24px;
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     h1 {
-    //         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='202' height='55' viewBox='0 0 202 55' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.4937 16.0126C8.56066 16.0126 0 24.5763 0 35.5063C0 46.4363 8.56066 55 19.4937 55C30.4216 55 38.9873 46.4363 38.9873 35.5063C38.9873 24.5763 30.4267 16.0126 19.4937 16.0126ZM19.4684 44.9719C14.2695 44.9719 10.0446 40.7256 10.0446 35.5114C10.0446 30.2921 14.2745 26.0508 19.4684 26.0508C24.6674 26.0508 28.8922 30.2972 28.8922 35.5114C28.8922 40.7306 24.6674 44.9719 19.4684 44.9719Z' fill='white'/%3E%3Cpath d='M52.853 16.762H42.4683V53.6076H52.853V36.9949C52.853 30.2405 58.0655 27.8455 62.5254 27.8455C63.0372 27.8455 63.5489 27.876 64.0505 27.9367V16.0126C60.007 16.0936 52.843 17.3848 52.843 21.8354H52.853V16.762Z' fill='white'/%3E%3Cpath d='M115.222 0C111.636 0 108.608 3.02712 108.608 6.61131C108.608 10.1955 111.636 13.2278 115.222 13.2278C118.807 13.2278 121.836 10.2008 121.836 6.61131C121.836 3.02712 118.807 0 115.222 0Z' fill='white'/%3E%3Cpath d='M120.443 16.7089H110V53.6076H120.443V16.7089Z' fill='white'/%3E%3Cpath d='M139.799 17.1765V16.7741V6.96204L129.28 10.0472V16.7691V17.1715H128.869H123.228V27.0133H128.869H129.28V27.4157V40.4968C129.28 45.1916 130.195 48.3315 132.151 50.3684C134.276 52.5792 137.68 53.6076 142.869 53.6076C144.292 53.6076 145.877 53.5281 147.59 53.3642V44.0987C146.761 44.1434 146.075 44.1633 145.471 44.1633C142.528 44.1633 139.805 43.7211 139.805 40.4968V27.4207V27.0183H140.216H147.595V17.1765H140.216H139.799V17.1765Z' fill='white'/%3E%3Cpath d='M191.456 53.6076H201.899V0L191.456 3.16287V53.6076Z' fill='white'/%3E%3Cpath d='M88.9336 15.7339C84.259 15.7339 80.5911 17.2178 78.0262 20.1454L77.3078 20.9625V19.8797V2.08862L66.8354 5.24178V53.1157L77.8845 49.7119L77.3128 49.0753L78.0312 49.8924C80.5962 52.82 84.264 54.3038 88.9386 54.3038C93.6234 54.3038 98.0248 52.3337 101.328 48.7595C104.672 45.1351 106.519 40.2575 106.519 35.0189C106.519 29.7803 104.677 24.9027 101.328 21.2783C98.0197 17.704 93.6183 15.7339 88.9336 15.7339ZM86.6722 44.3831C81.4613 44.3831 77.2268 40.1822 77.2268 35.0239C77.2268 29.8655 81.4663 25.6647 86.6722 25.6647C91.883 25.6647 96.1175 29.8655 96.1175 35.0239C96.1175 40.1822 91.878 44.3831 86.6722 44.3831Z' fill='white'/%3E%3Cpath d='M165.874 16.0126C161.188 16.0126 156.786 17.9685 153.482 21.5169C150.133 25.1151 148.291 29.9575 148.291 35.1582C148.291 40.3589 150.133 45.2013 153.482 48.7995C156.786 52.3479 161.188 54.3038 165.874 54.3038C170.544 54.3038 174.217 52.8307 176.782 49.9242L177.501 49.113L176.879 49.7451L187.975 53.1243V17.0528H177.501V20.1284V21.2034L176.782 20.3922C174.217 17.4857 170.549 16.0126 165.874 16.0126ZM177.567 35.1632C177.567 40.2892 173.327 44.4548 168.12 44.4548C162.909 44.4548 158.674 40.2842 158.674 35.1632C158.674 30.0421 162.914 25.8716 168.12 25.8716C173.327 25.8716 177.567 30.0371 177.567 35.1632Z' fill='white'/%3E%3C/svg%3E");
-    //         background-size: contain;
-    //         background-repeat: no-repeat;
-    //         position: relative;
-
-    //         display: flex;
-    //         max-width: 200px;
-    //         max-height: 55px;
-    //         margin-bottom: 100px;
-    //         // height: 14rem;
-    //         // border-radius: 8px 8px 0 0;
-    //         padding: 0;
-    //         align-items: center;
-    //         justify-content: center;
-
-    //         a {
-    //             background: none no-repeat center center;
-    //             background-size: contain;
-    //             width: 42%;
-    //             text-indent: -9999px;
-    //             overflow: hidden;
-    //             padding: 0px;
-    //             display: block;
-    //             opacity: 1;
-    //             margin: initial;
-    //         }
-    //     }
-
-    //     form {
-    //         padding: 0;
-    //         font-weight: 400;
-    //         overflow: hidden;
-    //         background: none;
-    //         border: none;
-    //         margin-top: 0;
-    //         box-shadow: none;
-    //     }
-    // }
-
-    // #nav {
-    //     margin: 0 0 0 0;
-    //     background: none;
-    //     font-size: 14px;
-    //     text-align: left;
-    //     padding: 1rem 0;
-
-    //     a {
-    //         color: #252525;
-    //         font-weight: 200;
-    //         transition: all 0.15s ease;
-    //         &:hover {
-    //             color: #ff6500;
-    //         }
-    //     }
-    // }
 }
 
-// .wp-core-ui .button.button-large {
-//     line-height: 40px;
-//     padding: 0 1.5rem;
-//     height: initial;
-//     text-shadow: none;
-//     font-size: 14px;
-//     background: #ff6600;
-//     border: none;
-//     border-radius: 4px;
-//     transform: translateZ(0);
-//     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-//     backface-visibility: hidden;
-//     -moz-osx-font-smoothing: grayscale;
-//     overflow: hidden;
-//     transition-duration: 0.3s;
-//     transition-property: color, background-color;
+.login-form {
+    .login-form__field-wrap {
+        margin: 0 0 1rem;
+        position: relative;
 
-//     &:hover {
-//         background: darken(#ff6500, 5%);
-//     }
-// }
+        .login-form__label {
+            position: absolute;
+            display: block;
 
-// .login #login_error,
-// .login .message,
-// .login .success {
-//     border-left: none !important;
-//     padding: 0 !important;
-//     margin: 0 !important;
-//     box-shadow: none !important;
-//     background: none !important;
-// }
+            font-family: var(--font-family);
+            font-size: 12px;
+            color: var(--orange);
+            line-height: 1;
+
+            top: 0;
+            left: 0;
+            z-index: 0;
+
+            transform: translateY(0%);
+            transition: all 0.25s ease-out;
+            cursor: default;
+        }
+
+        .login-form__button {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            display: block;
+            height: 18px;
+            width: 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' viewBox='0 0 640 512'%3E%3Cpath fill='%23c4c4c4' d='M634 471L36 3.5A16 16 0 0013.5 6l-10 12.5A16 16 0 006 41l598 467.5a16 16 0 0022.5-2.5l10-12.5A16 16 0 00634 471zM296.8 146.5l134.8 105.4A111.7 111.7 0 00320 144a112.3 112.3 0 00-23.2 2.5zm46.4 219L208.4 260.2C210.7 320 259.5 368 320 368a113 113 0 0023.2-2.5zM320 112c98.7 0 189 55 238 144a285.5 285.5 0 01-44 60.2l37.7 29.5a333.7 333.7 0 0052.9-75.1 32.4 32.4 0 000-29.2C550.3 135.6 442.9 64 320 64c-36.7 0-71.7 7-104.6 18.8l46.4 36.3c19-4.3 38.3-7.1 58.2-7.1zm0 288c-98.7 0-189-55-238-144a285.5 285.5 0 0144.1-60.2l-37.7-29.5a333.6 333.6 0 00-53 75.1 32.4 32.4 0 000 29.2C89.8 376.4 197.2 448 320 448c36.7 0 71.7-7 104.6-18.8l-46.4-36.3A263 263 0 01320 400z'/%3E%3C/svg%3E");
+            border: none;
+            box-shadow: none;
+
+            z-index: 2;
+            cursor: pointer;
+
+            &:hover {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' viewBox='0 0 640 512'%3E%3Cpath fill='%23ff6500' d='M634 471L36 3.5A16 16 0 0013.5 6l-10 12.5A16 16 0 006 41l598 467.5a16 16 0 0022.5-2.5l10-12.5A16 16 0 00634 471zM296.8 146.5l134.8 105.4A111.7 111.7 0 00320 144a112.3 112.3 0 00-23.2 2.5zm46.4 219L208.4 260.2C210.7 320 259.5 368 320 368a113 113 0 0023.2-2.5zM320 112c98.7 0 189 55 238 144a285.5 285.5 0 01-44 60.2l37.7 29.5a333.7 333.7 0 0052.9-75.1 32.4 32.4 0 000-29.2C550.3 135.6 442.9 64 320 64c-36.7 0-71.7 7-104.6 18.8l46.4 36.3c19-4.3 38.3-7.1 58.2-7.1zm0 288c-98.7 0-189-55-238-144a285.5 285.5 0 0144.1-60.2l-37.7-29.5a333.6 333.6 0 00-53 75.1 32.4 32.4 0 000 29.2C89.8 376.4 197.2 448 320 448c36.7 0 71.7-7 104.6-18.8l-46.4-36.3A263 263 0 01320 400z'/%3E%3C/svg%3E");
+            }
+
+            &[aria-label='Hide password'] {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23c4c4c4' d='M288 144a111 111 0 00-31.2 5 55.4 55.4 0 017.2 27 56 56 0 01-56 56 55.4 55.4 0 01-27-7.2A111.7 111.7 0 10288 144zm284.5 97.4C518.3 135.6 411 64 288 64S57.7 135.6 3.5 241.4a32.4 32.4 0 000 29.2C57.7 376.4 165 448 288 448s230.3-71.6 284.5-177.4a32.4 32.4 0 000-29.2zM288 400c-98.7 0-189-55-238-144 49-89 139.3-144 238-144s189 55 238 144C477 345 386.6 400 288 400z'/%3E%3C/svg%3E");
+
+                &:hover {
+                    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='%23ff6500' d='M288 144a111 111 0 00-31.2 5 55.4 55.4 0 017.2 27 56 56 0 01-56 56 55.4 55.4 0 01-27-7.2A111.7 111.7 0 10288 144zm284.5 97.4C518.3 135.6 411 64 288 64S57.7 135.6 3.5 241.4a32.4 32.4 0 000 29.2C57.7 376.4 165 448 288 448s230.3-71.6 284.5-177.4a32.4 32.4 0 000-29.2zM288 400c-98.7 0-189-55-238-144 49-89 139.3-144 238-144s189 55 238 144C477 345 386.6 400 288 400z'/%3E%3C/svg%3E");
+                }
+            }
+        }
+
+        .login-form__input {
+            font-family: var(--font-family);
+            font-size: var(--base-fs);
+            color: var(--grey);
+
+            background: none;
+            margin: 0;
+            padding: 0;
+
+            position: relative;
+            height: 50px;
+            width: 100%;
+            outline: 0;
+            z-index: 1;
+
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid var(--grey);
+
+            &[aria-describedby='login_error'] {
+                border: 1px solid #dc3232;
+                border-left: 3px solid #dc3232;
+            }
+
+            &::placeholder {
+                opacity: 0;
+            }
+
+            &:placeholder-shown {
+                + label {
+                    font-size: var(--base-fs);
+                    transition: all 0.25s ease-out;
+
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+
+            &:focus {
+                + label {
+                    transition: all 0.25s ease-out;
+                    font-size: 12px;
+                    top: 0;
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+
+.forgetmenot {
+    input[type='checkbox'] {
+        opacity: 0;
+    }
+
+    label {
+        position: relative;
+        display: inline-block;
+
+        /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+        padding-left: 22px;
+    }
+
+    label::before,
+    label::after {
+        position: absolute;
+        content: '';
+
+        /*Needed for the line-height to take effect*/
+        display: inline-block;
+    }
+
+    /*Outer box of the fake checkbox*/
+    label::before {
+        height: 16px;
+        width: 16px;
+
+        border: 1px solid;
+        left: 0px;
+
+        /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+     *to vertically center it.
+     */
+        top: 3px;
+    }
+
+    /*Checkmark of the fake checkbox*/
+    label::after {
+        height: 5px;
+        width: 9px;
+        border-left: 2px solid;
+        border-bottom: 2px solid;
+
+        transform: rotate(-45deg);
+
+        left: 4px;
+        top: 7px;
+    }
+
+    /*Hide the checkmark by default*/
+    input[type='checkbox'] + label::after {
+        content: none;
+    }
+
+    /*Unhide on the checked state*/
+    input[type='checkbox']:checked + label::after {
+        content: '';
+    }
+
+    /*Adding focus styles on the outer-box of the fake checkbox*/
+    input[type='checkbox']:focus + label::before {
+        outline: rgb(59, 153, 252) auto 5px;
+    }
+}
