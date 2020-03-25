@@ -13,7 +13,7 @@ For more info, check out the codex:
 http://codex.wordpress.org/Creating_Admin_Themes
 
 ******************************************************************/
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap');
 
 :root {
     --font-family: 'Quicksand', Helvetica, Arial, sans-serif;
@@ -28,20 +28,36 @@ http://codex.wordpress.org/Creating_Admin_Themes
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    margin: 0;
 
     .login-wrapper {
         display: flex;
         align-items: center;
 
-        max-width: 1300px;
+        max-width: 1400px;
+        padding: 0 50px;
         width: 100%;
 
         &__col {
             flex: 1;
 
+            figure {
+                margin: 0;
+                padding: 0;
+
+                img {
+                    max-width: 100%;
+                }
+            }
+
             &:first-of-type {
                 flex: 2;
                 text-align: right;
+
+                @media only screen and (orientation: portrait) {
+                    display: none;
+                }
             }
 
             &:last-of-type {
@@ -50,6 +66,10 @@ http://codex.wordpress.org/Creating_Admin_Themes
             .login__logo {
                 display: inline-block;
                 margin-bottom: 100px;
+
+                @media only screen and (orientation: portrait) {
+                    margin-bottom: 50px;
+                }
             }
         }
     }
@@ -57,7 +77,7 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
 .login-form {
     .login-form__field-wrap {
-        margin: 0 0 1rem;
+        margin: 0 0 20px;
         position: relative;
 
         .login-form__label {
@@ -161,16 +181,37 @@ http://codex.wordpress.org/Creating_Admin_Themes
 }
 
 .forgetmenot {
+    display: block;
+    height: 25px; // Same height as input
+
     input[type='checkbox'] {
         opacity: 0;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        visibility: hidden;
     }
 
     label {
         position: relative;
         display: inline-block;
 
-        /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
-        padding-left: 22px;
+        /*25px width of fake checkbox + 10px distance between fake checkbox and text*/
+        padding-left: 35px;
+
+        height: 25px;
+        line-height: 22px;
+
+        font-family: var(--font-family);
+        font-size: var(--base-fs);
+        color: var(--grey);
+
+        transition: all 0.25s ease;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--orange);
+        }
     }
 
     label::before,
@@ -184,29 +225,24 @@ http://codex.wordpress.org/Creating_Admin_Themes
 
     /*Outer box of the fake checkbox*/
     label::before {
-        height: 16px;
-        width: 16px;
-
-        border: 1px solid;
+        height: 25px;
+        width: 25px;
+        background: var(--white);
+        border-radius: 4px;
         left: 0px;
-
-        /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
-     *to vertically center it.
-     */
-        top: 3px;
+        top: 0;
     }
 
     /*Checkmark of the fake checkbox*/
     label::after {
-        height: 5px;
-        width: 9px;
-        border-left: 2px solid;
-        border-bottom: 2px solid;
-
+        height: 6px;
+        width: 16px;
+        border-left: 4px solid var(--orange);
+        border-bottom: 4px solid var(--orange);
+        -webkit-transform: rotate(-45deg);
         transform: rotate(-45deg);
-
-        left: 4px;
-        top: 7px;
+        left: 3px;
+        top: 6px;
     }
 
     /*Hide the checkmark by default*/
@@ -222,5 +258,60 @@ http://codex.wordpress.org/Creating_Admin_Themes
     /*Adding focus styles on the outer-box of the fake checkbox*/
     input[type='checkbox']:focus + label::before {
         outline: rgb(59, 153, 252) auto 5px;
+    }
+}
+
+.submit {
+    text-align: right;
+
+    .login-form__submit {
+        font-family: var(--font-family);
+        font-size: var(--base-fs);
+        font-weight: 700;
+        color: var(--white);
+
+        border: none;
+        box-shadow: none;
+        background: var(--orange);
+        border-radius: 4px;
+
+        padding: 10px 25px;
+
+        cursor: pointer;
+
+        transition: all 0.25s ease;
+
+        &:hover {
+            background: #cc5100;
+        }
+    }
+}
+
+.form-split {
+    display: flex;
+    margin: 30px 0 30px;
+    align-items: center;
+
+    > div {
+        &:first-of-type {
+            flex: 2;
+        }
+
+        &:last-of-type {
+            flex: 1;
+        }
+    }
+}
+
+.login-form__link {
+    font-family: var(--font-family);
+    font-size: var(--base-fs);
+    color: #5a5a5a;
+    text-decoration: none;
+
+    transition: all.25s ease;
+
+    &:hover {
+        color: var(--orange);
     }
 }

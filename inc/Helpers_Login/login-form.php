@@ -50,21 +50,21 @@ $form = '<div class="login-wrapper">
                 <button type="button" class="login-form__button wp-hide-pw" data-toggle="0" aria-label="Show password"></button>
             </div>
 
-            <div class="forgetmenot">
-                <input name="rememberme" type="checkbox" id="rememberme" value="forever" />
-                <label for="rememberme">Remember Me</label>
-            </div>
+            <div class="form-split">
+                <div class="forgetmenot">
+                    <input name="rememberme" type="checkbox" id="rememberme" value="forever" />
+                    <label for="rememberme">remember me</label>
+                </div>
 
-            <div class="submit">
-                <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
-                <input type="hidden" name="redirect_to" value="https://logger.local/bridge/wp-admin/" />
-                <input type="hidden" name="testcookie" value="1" />
+                <div class="submit">
+                    <input type="submit" name="wp-submit" id="wp-submit" class="login-form__submit" value="log in" />
+                    <input type="hidden" name="redirect_to" value="https://logger.local/bridge/wp-admin/" />
+                    <input type="hidden" name="testcookie" value="1" />
+                </div>
             </div>
         </form>
 
-        <ul id="nav" class="">
-            <a href="https://logger.local/bridge/access?action=lostpassword">Lost your password?</a>
-        </ul>
+        <a class="login-form__link" href="https://logger.local/bridge/access?action=lostpassword">forgotten your password?</a>
     </div>
 </div>';
 
