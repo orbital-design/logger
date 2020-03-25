@@ -95,6 +95,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
         add_theme_support( 'responsive-embeds' );
 
         add_theme_support( 'post-thumbnails' );
+
+        add_theme_support( 'menus' );
     }
 
     /**
