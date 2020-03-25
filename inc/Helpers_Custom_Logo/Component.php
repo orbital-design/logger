@@ -98,10 +98,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
             'g' => array(
                 'id' => true,
                 'fill' => true,
+                'style' => true,
+                'class' => true,
+                'fill' => true,
             ),
             'path' => array(
                 'class' => true,
                 'd' => true,
+                'style' => true,
+                'fill' => true,
             ),
         );
     }
