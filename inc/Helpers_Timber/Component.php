@@ -41,6 +41,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
      * Adds the action and filter hooks to integrate with WordPress.
      */
     public function initialize() {
+        add_filter('timber_context', [ $this, 'constructGlobalContext' ] );
         // add_filter( 'timber/twig', [ $this, 'addCompressionHooksToTwig' ] );
     }
 
@@ -57,6 +58,46 @@ class Component implements Component_Interface, Templating_Component_Interface {
             'before_template_render'  => [ $this, 'before_template_render' ],
             'after_template_render'         => [ $this, 'after_template_render' ]
         ];
+    }
+
+    public function constructGlobalContext($context){
+
+        $context['branding'] = $this->constructBrandingContext($context);
+
+        return $context;
+    }
+
+    public function constructBrandingContext( $context ) {
+
+        $branding = [];
+
+        $allowed_html = logger()->loggerBrandingLogoLinkEscape();
+
+        $site_name = $context['site']->title;
+        $site_url  = $context['site']->home_url;
+
+        $site_logo_id = get_theme_mod( 'custom_logo' );
+
+        if ( empty( $site_logo_id ) ) {
+            return $site_name;
+        }
+
+        $site_logo_url = wp_get_attachment_image_src( $site_logo_id )[0];
+        $site_logo_ext = pathinfo( $site_logo_url, PATHINFO_EXTENSION );
+
+        if ( 'svg' === $site_logo_ext && isset( $_SERVER['DOCUMENT_ROOT'] ) ) {
+            $file = wp_get_attachment_image_url( $site_logo_id );
+            $svg_file = str_replace( [get_site_url(), '../'], ['', ''], $file );
+
+            $branding['type'] = 'svg';
+            $branding['src']  = wp_kses( file_get_contents( sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) . $svg_file ), $allowed_html );
+        } else {
+            $branding['type'] = 'img';
+            $branding['src'] = new Image($site_logo_id);
+        }
+
+
+        return $branding;
     }
 
     /**
