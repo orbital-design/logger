@@ -303,6 +303,17 @@ http://codex.wordpress.org/Creating_Admin_Themes
     }
 }
 
+.message {
+    font-family: var(--font-family);
+    font-size: var(--base-fs);
+    color: #5a5a5a;
+    text-decoration: none;
+
+    &:first-of-type {
+        color: #fff;
+    }
+}
+
 .login-form__link {
     font-family: var(--font-family);
     font-size: var(--base-fs);
