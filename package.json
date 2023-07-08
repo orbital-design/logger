@@ -40,7 +40,7 @@
         "postcss-calc": "^7.0.1",
         "postcss-preset-env": "^6.6.0",
         "rucksack-css": "^1.0.2",
-        "stylelint": "^9.10.1",
+        "stylelint": "^15.10.1",
         "stylelint-config-standard": "^18.0.0"
     },
     "stylelint": {
